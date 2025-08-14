@@ -19,7 +19,7 @@ public class UwinEffectsCMD extends CommandManager<Main> {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length < 1) {
-            sender.sendMessage("§cUso: /uwineffects <start|stop|reload> [jugador]");
+            sender.sendMessage("§cUsage: /uwineffects <start|stop|reload> [jugador]");
             return true;
         }
 
@@ -35,7 +35,7 @@ public class UwinEffectsCMD extends CommandManager<Main> {
                         sender.sendMessage("§cJugador no encontrado o no está en línea.");
                     }
                 } else {
-                    sender.sendMessage("§cUso: /uwineffects start <jugador>");
+                    sender.sendMessage("§cUsage: /uwineffects start <jugador>");
                 }
                 break;
 
@@ -53,7 +53,7 @@ public class UwinEffectsCMD extends CommandManager<Main> {
                         sender.sendMessage("§cJugador no encontrado o no está en línea.");
                     }
                 } else {
-                    sender.sendMessage("§cUso: /uwineffects stop <jugador>");
+                    sender.sendMessage("§cUsage: /uwineffects stop <jugador>");
                 }
                 break;
 
@@ -77,14 +77,14 @@ public class UwinEffectsCMD extends CommandManager<Main> {
                             sender.sendMessage(plugin.getLang().get("setup.reloadMenu"));
                             break;
                         default:
-                            sender.sendMessage("§cOpciones: lang, config, menu");
+                            sender.sendMessage("§cOptions: lang, config, menu");
                             break;
                     }
                 }
                 break;
 
             default:
-                sender.sendMessage("§cSubcomando desconocido.");
+                sender.sendMessage("§cUnknown subcommand.");
                 break;
         }
         return true;

@@ -29,7 +29,7 @@ public class winEffectsCMD extends CommandManager<Main> {
                     this.plugin.getUim().createWinEffectSelectorMenu(p);
                     break;
                 case "coins":
-                    p.sendMessage(plugin.getLang().get(p,"").replace("<coins>", String.valueOf(dbPlayer.getCoins())));
+                    p.sendMessage(plugin.getLang().get(p,"messages.coins").replace("<coins>", String.valueOf(dbPlayer.getCoins())));
                     break;
                 default:
                     break;

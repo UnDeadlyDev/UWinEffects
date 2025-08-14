@@ -127,9 +127,6 @@ public class CosmeticManager {
             case "titan":
                 we = new WinEffectTitan();
                 break;
-            case "sonicboom":
-                we = new WinEffectSonicBoom();
-                break;
             default:
                 we = new WinEffectFireworks();
                 break;

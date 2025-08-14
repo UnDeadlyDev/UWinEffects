@@ -18,9 +18,14 @@ menus:
       nameItem: '&#FFD700Close'
       loreItem: '&#FF6347Click to close the menu'
 messages:
+  coins: '&eYou have: &b<coins>'
   noBuy: '&cThis is not available to you.'
   noCoins: '&cYou don''t have enough coins.'
   deselectWinEffect: '&7You unselected your current win effect.'
   selectWinEffect: '&7You selected the win effect: &#FF6F48<wineffect>'
   noPermit: '&cYou cannot buy this cosmetic, you need a higher rank.'
   noSelected: '&cNot selected'
+setup:
+  reloadMenu: ''
+  reloadLang: ''
+  reload: ''

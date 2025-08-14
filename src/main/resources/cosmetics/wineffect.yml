@@ -351,27 +351,3 @@ wineffects:
     permission: uwineffects.titan
     autoGivePermission: uwineffect.autogive.titan
     needPermToBuy: false
-
-  sonicboom:
-    id: 15
-    type: SonicBoom
-    icon:
-      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjU1YTU2ZmJmYmY4MTYzMDU3OTk5MDc5NmEzMWRkZDRjODgwNWJkY2NlYjAxODM3ZWUwMGMyNDU4NTkzNDM3NiJ9fX0=
-      meta:
-        display-name: §aSonicBoom
-        lore: |-
-          §eDescription:
-          §7Increase the size
-          §7of your skin
-          §7
-          <price>
-          §7
-          <status>
-    name: SonicBoom
-    price: 50000
-    isBuy: true
-    slot: 34
-    page: 1
-    permission: uwineffects.sonicboom
-    autoGivePermission: uwineffect.autogive.sonicboom
-    needPermToBuy: false
