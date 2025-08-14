@@ -1,0 +1,377 @@
+wineffects:
+  fireworks:
+    id: 0
+    icon:
+      material: FIREWORK_ROCKET
+      meta:
+        display-name: §aFireworks
+        lore: |-
+          §eDescription:
+          §7Fireworks, the effect
+          §7for all ;D
+          §7
+          <status>
+    type: fireworks
+    name: Fireworks
+    price: 100
+    isBuy: true
+    slot: 11
+    page: 1
+    permission: uwineffects.fireworks
+    autoGivePermission: uwineffect.autogive.Fireworks
+    needPermToBuy: false
+
+  vulcanwool:
+    id: 1
+    icon:
+      material: RED_WOOL
+      meta:
+        display-name: §aVulcano Wool
+        lore: |-
+          §eDescription:
+          §7Wool volcano, give it color
+          §7your life <3 w <3
+          §7
+          <status>
+    type: vulcanwool
+    name: Vulcan Wool
+    price: 5000
+    isBuy: true
+    slot: 12
+    page: 1
+    permission: uwineffects.vulcanwool
+    autoGivePermission: uwineffect.autogive.Vulcan Wool
+    needPermToBuy: false
+
+  vulcanfire:
+    id: 2
+    icon:
+      material: FIREWORK_STAR
+      meta:
+        display-name: §aFire Volcano
+        lore: |-
+          §eDescription:
+          §7Fire volcano, give it color
+          §7to your hot life :>
+          §7
+          <status>
+    type: vulcanfire
+    name: Vulcan Fire
+    price: 5000
+    isBuy: true
+    slot: 13
+    page: 1
+    permission: uwineffects.vulcanfire
+    autoGivePermission: uwineffect.autogive.Vulcan Fire
+    needPermToBuy: false
+
+  icewalker:
+    id: 3
+    icon:
+      material: ICE
+      meta:
+        display-name: §aIce Walker
+        lore: |-
+          §eDescription:
+          §7Ice appears as he walks.
+          §7
+          <status>
+    type: icewalker
+    name: Ice Walker
+    price: 5000
+    isBuy: true
+    slot: 14
+    page: 1
+    permission: uwineffects.icewalker
+    autoGivePermission: uwineffect.autogive.Ice Walker
+    needPermToBuy: false
+
+  notes:
+    id: 4
+    icon:
+      material: MUSIC_DISC_CAT
+      meta:
+        display-name: §aNotes
+        lore: |-
+          §eDescription:
+          §7Notes appear about you.
+          §7
+          <status>
+    type: notes
+    name: Notes
+    price: 5000
+    isBuy: true
+    slot: 15
+    page: 1
+    permission: uwineffects.notes
+    autoGivePermission: uwineffect.autogive.Notes
+    needPermToBuy: false
+
+  chickens:
+    id: 5
+    icon:
+      material: EGG
+      meta:
+        display-name: §aChickens
+        lore: |-
+          §eDescription:
+          §7Chickens will show up around you.
+          §7
+          <status>
+    type: chickens
+    name: chickens
+    price: 5000
+    isBuy: true
+    slot: 20
+    page: 1
+    permission: uwineffects.chickens
+    autoGivePermission: uwineffect.autogive.chickens
+    needPermToBuy: false
+
+  guardian:
+    id: 6
+    icon:
+      material: SCULK_SHRIEKER
+      meta:
+        display-name: §aGuardians
+        lore: |-
+          §eDescription:
+          §7Guardians will honor you.
+          §7
+          <status>
+    type: guardian
+    name: guardian
+    price: 5000
+    isBuy: true
+    slot: 21
+    page: 1
+    permission: uwineffects.guardian
+    autoGivePermission: uwineffect.autogive.guardian
+    needPermToBuy: false
+
+  daredevil:
+    id: 7
+    icon:
+      material: SADDLE
+      meta:
+        display-name: §aDare Devil
+        lore: |-
+          §eDescription:
+          §7Horse spawn and you ride.
+          §7
+          <status>
+    type: daredevil
+    name: daredevil
+    price: 5000
+    isBuy: true
+    slot: 22
+    page: 1
+    permission: uwineffects.daredevil
+    autoGivePermission: uwineffect.autogive.daredevil
+    needPermToBuy: false
+
+  twerk:
+    id: 8
+    type: twerk
+    icon:
+      material: DIAMOND_BOOTS
+      meta:
+        display-name: §aTwerk Apocalypse
+        lore: |-
+          §eDescription:
+          §7Confuse your enemies with
+          §7the hour of his victory.
+          §7
+          <status>
+    name: Twerk Apocalypse
+    price: 50000
+    isBuy: true
+    slot: 32
+    page: 1
+    permission: uwineffects.twerk
+    autoGivePermission: uwineffect.autogive.twerk
+    needPermToBuy: true
+
+  pigland:
+    id: 9
+    type: pigland
+    icon:
+      material: PORKCHOP
+      meta:
+        display-name: §aPig Land
+        lore: |-
+          §eDescription:
+          §7Summon a shower of pigs
+          §7
+          <price>
+          §7
+          <status>
+    name: Pig Land
+    price: 5000
+    isBuy: true
+    slot: 24
+    page: 1
+    permission: uwineffects.pigland
+    autoGivePermission: uwineffect.autogive.Pig Land
+    needPermToBuy: true
+    maxOfPlayerNegative: 5
+    maxOfPlayerPositive: 5
+    firstUp: 10
+    maxRandomUp: 20
+    taskTick: 5
+
+  meteors:
+    id: 10
+    type: meteors
+    icon:
+      material: FIRE_CHARGE
+      meta:
+        display-name: §aMeteors
+        lore: |-
+          §eDescription:
+          §7Summon a meteor shower on the map.
+          §7
+          <price>
+          §7
+          <status>
+    name: Meteors
+    price: 5000
+    isBuy: true
+    slot: 29
+    page: 1
+    permission: uwineffects.meteors
+    autoGivePermission: uwineffect.autogive.Meteors
+    needPermToBuy: true
+    maxOfCenter: 1.0
+    heightAbovePlayer: 10
+    taskTick: 2
+
+  anvilland:
+    id: 11
+    type: anvilland
+    icon:
+      material: ANVIL
+      meta:
+        display-name: §aAnvil Rain
+        lore: |-
+          §eDescription:
+          §7Appear anvils everywhere
+          §7at win.
+          §7
+          <price>
+          §7
+          <status>
+    name: AnvilLand
+    price: 5000
+    isBuy: true
+    slot: 30
+    page: 1
+    maxOfPlayerNegative: 5
+    maxOfPlayerPositive: 5
+    firstUp: 10
+    maxRandomUp: 20
+    permission: uwineffects.anvilland
+    autoGivePermission: uwineffect.autogive.AnvilLand
+    needPermToBuy: true
+    taskTick: 5
+
+  wolfs:
+    id: 12
+    type: wolfs
+    icon:
+      material: BONE
+      meta:
+        display-name: §aWolf Apocalips
+        lore: |-
+          §eDescription:
+          §7A pack of wolves that will
+          §7be your friends.
+          §7
+          <price>
+          §7
+          <status>
+    name: Wolfs
+    price: 5000
+    isBuy: true
+    slot: 31
+    page: 1
+    taskTick: 5
+    permission: uwineffects.wolfs
+    autoGivePermission: uwineffect.autogive.Wolfs
+    needPermToBuy: false
+
+  destroyisland:
+    id: 13
+    type: destroyisland
+    icon:
+      material: TNT
+      meta:
+        display-name: §aDestroy Island
+        lore: |-
+          §eDescription:
+          §7A TnT rain
+          §7came to destroy
+          §7everything in its path
+          §7
+          <price>
+          §7
+          <status>
+    name: DestroyIsland
+    price: 5000
+    isBuy: true
+    slot: 23
+    page: 1
+    permission: uwineffects.destroyisland
+    autoGivePermission: uwineffect.autogive.destroyisland
+    needPermToBuy: false
+    spawnLaterTick: 20
+    amountTNT: 4
+    perFuseAmount: 15
+
+  titan:
+    id: 14
+    type: titan
+    icon:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjU1YTU2ZmJmYmY4MTYzMDU3OTk5MDc5NmEzMWRkZDRjODgwNWJkY2NlYjAxODM3ZWUwMGMyNDU4NTkzNDM3NiJ9fX0=
+      meta:
+        display-name: §aTitan
+        lore: |-
+          §eDescription:
+          §7Increase the size
+          §7of your skin
+          §7
+          <price>
+          §7
+          <status>
+    name: Titan
+    price: 50000
+    isBuy: true
+    slot: 33
+    page: 1
+    permission: uwineffects.titan
+    autoGivePermission: uwineffect.autogive.titan
+    needPermToBuy: false
+
+  sonicboom:
+    id: 15
+    type: SonicBoom
+    icon:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjU1YTU2ZmJmYmY4MTYzMDU3OTk5MDc5NmEzMWRkZDRjODgwNWJkY2NlYjAxODM3ZWUwMGMyNDU4NTkzNDM3NiJ9fX0=
+      meta:
+        display-name: §aSonicBoom
+        lore: |-
+          §eDescription:
+          §7Increase the size
+          §7of your skin
+          §7
+          <price>
+          §7
+          <status>
+    name: SonicBoom
+    price: 50000
+    isBuy: true
+    slot: 34
+    page: 1
+    permission: uwineffects.sonicboom
+    autoGivePermission: uwineffect.autogive.sonicboom
+    needPermToBuy: false

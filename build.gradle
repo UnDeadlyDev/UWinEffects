@@ -1,0 +1,88 @@
+plugins {
+    id 'java'
+    // https://github.com/GradleUp/shadow
+    id 'com.gradleup.shadow' version '8.3.8'
+    // https://github.com/Minecrell/plugin-yml
+    id 'net.minecrell.plugin-yml.bukkit' version '0.6.0'
+}
+
+group 'com.undeadlydev'
+version '1.0'
+
+bukkit {
+    name = 'UWinEffects'
+    main = 'com.undeadlydev.UWinEffects.Main'
+    version = project.version
+    apiVersion = '1.13'
+    author = 'UnDeadlyDev'
+    softDepend = ['PlaceholderAPI', 'Vault', 'Citizens']
+}
+
+repositories {
+    mavenCentral()
+
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/groups/public/' }
+    maven { url 'https://libraries.minecraft.net/' } // Minecraft Libraries
+    maven { url 'https://repo.codemc.io/repository/maven-snapshots/' }
+    maven { url 'https://repo.codemc.org/repository/maven-public/' }
+    maven { url 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
+    maven { url 'https://repo.papermc.io/repository/maven-public/'}
+    maven { url 'https://maven.enginehub.org/repo/'}
+    maven {
+        name = 'citizens-repo'
+        url = 'https://maven.citizensnpcs.co/repo'
+    }
+}
+
+dependencies {
+    // https://hub.spigotmc.org/stash/projects/SPIGOT/repos/spigot/browse
+    compileOnly 'org.spigotmc:spigot-api:1.21.8-R0.1-SNAPSHOT'
+
+    // https://github.com/PlaceholderAPI/PlaceholderAPI
+    compileOnly 'me.clip:placeholderapi:2.11.6'
+
+    // https://github.com/MilkBowl/VaultAPI
+    compileOnly('net.milkbowl.vault:VaultAPI:1.7') {
+        exclude group: 'org.bukkit'
+    }
+
+    compileOnly('net.citizensnpcs:citizens-main:2.0.35-SNAPSHOT') {
+        exclude group: '*', module: '*'
+    }
+
+    // https://github.com/BananaPuncher714/NBTEditor
+    implementation 'io.github.bananapuncher714:nbteditor:7.19.9'
+
+    // https://github.com/CryptoMorin/XSeries
+    library 'com.github.cryptomorin:XSeries:13.3.3'
+
+    // https://github.com/brettwooldridge/HikariCP
+    library'com.zaxxer:HikariCP:6.3.0'
+
+    // https://github.com/Bastian/bstats-metrics
+    implementation 'org.bstats:bstats-bukkit:3.1.0'
+}
+
+shadowJar {
+    archiveFileName = "${rootProject.name}-${version}.jar"
+
+    def path = 'com.undeadlydev.UWinEffects.libraries'
+    relocate 'org.bstats', path +'.bstats'
+    relocate 'io.github.bananapuncher714.nbteditor', path + '.NBTEditor'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-Xlint:unchecked' << '-Xlint:deprecation'
+}
+
+processResources {
+    inputs.property('version', project.version)
+}

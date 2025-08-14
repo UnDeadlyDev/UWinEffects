@@ -1,0 +1,26 @@
+menus:
+  wineffectsselector:
+    title: ● Win Effects Selector
+    noPermission: '&cYou do not have permission for this win effect'
+    hasBuy: '&eYou already own this win effect'
+    buy: '&aYou can afford this win effect'
+    noMoney: '&cYou do not have enough money.'
+    price: '&ePrice: &6<price>'
+    noBuyable: '&cNot available to buy.'
+    buyed: '&eUnlocked'
+    deselect:
+      nameItem: '&#FFD700Unequip WinEffect'
+      loreItem: '&#FF6347Click to unequip this Win Effect'
+    selected:
+      nameItem: '&#FFD700Win Effect Selected'
+      loreItem: ''
+    close:
+      nameItem: '&#FFD700Close'
+      loreItem: '&#FF6347Click to close the menu'
+messages:
+  noBuy: '&cThis is not available to you.'
+  noCoins: '&cYou don''t have enough coins.'
+  deselectWinEffect: '&7You unselected your current win effect.'
+  selectWinEffect: '&7You selected the win effect: &#FF6F48<wineffect>'
+  noPermit: '&cYou cannot buy this cosmetic, you need a higher rank.'
+  noSelected: '&cNot selected'
