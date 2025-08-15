@@ -48,6 +48,7 @@ public class ItemUtils {
 
     public ItemStack build() {
         item.setItemMeta(im);
+        ItemBuilder.setFlags(item);
         return item;
     }
 }

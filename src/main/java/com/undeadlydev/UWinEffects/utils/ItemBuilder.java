@@ -1,25 +1,24 @@
 package com.undeadlydev.UWinEffects.utils;
 
+import com.cryptomorin.xseries.XAttribute;
 import com.cryptomorin.xseries.XMaterial;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.calls.CallBackAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
-import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
-import org.bukkit.attribute.AttributeModifier.Operation;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.inventory.EquipmentSlotGroup; // Importación correcta para 1.20.5+
+import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.EquipmentSlotGroup;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
-
-import java.lang.reflect.Field; // Para usar reflexión
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 public class ItemBuilder {
 
@@ -27,11 +26,11 @@ public class ItemBuilder {
         ItemStack itemStack = new ItemStack(material.parseMaterial(), n, material.getData());
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(displayName);
-        removeFlags(itemMeta);
         itemMeta.setLore(s.isEmpty() ? new ArrayList<>() : Arrays.asList(s.split("\\n")));
         itemMeta.setUnbreakable(true);
         itemMeta.addEnchant(Enchantment.LURE, 1, true);
         itemStack.setItemMeta(itemMeta);
+        setFlags(itemStack); // Llama al método aquí
         return itemStack;
     }
 
@@ -39,9 +38,9 @@ public class ItemBuilder {
         ItemStack itemStack = new ItemStack(material.parseMaterial(), n, material.getData());
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(displayName);
-        removeFlags(itemMeta);
         itemMeta.setLore(s);
         itemStack.setItemMeta(itemMeta);
+        setFlags(itemStack); // Llama al método aquí
         return itemStack;
     }
 
@@ -49,9 +48,9 @@ public class ItemBuilder {
         ItemStack itemStack = new ItemStack(material.parseMaterial(), 1, material.getData());
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(displayName);
-        removeFlags(itemMeta);
         itemMeta.setLore(s.isEmpty() ? new ArrayList<>() : Arrays.asList(s.split("\\n")));
         itemStack.setItemMeta(itemMeta);
+        setFlags(itemStack); // Llama al método aquí
         return itemStack;
     }
 
@@ -70,20 +69,18 @@ public class ItemBuilder {
                 break;
             }
         }
-        if (im != null) {
-            removeFlags(im);
-        }
         i.setItemMeta(im);
+        setFlags(i);
         return i;
     }
 
     public static ItemStack nameLore(ItemStack itemStack, String displayName, String s) {
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(displayName);
-        removeFlags(itemMeta);
         itemMeta.setLore(null);
         itemMeta.setLore(s.isEmpty() ? new ArrayList<>() : Arrays.asList(s.split("\\n")));
         itemStack.setItemMeta(itemMeta);
+        setFlags(itemStack);
         return itemStack;
     }
 
@@ -98,54 +95,38 @@ public class ItemBuilder {
         skullMeta.setDisplayName(displayName);
         skullMeta.setLore(s);
         itemStack.setItemMeta(skullMeta);
+        setFlags(itemStack);
         return itemStack;
     }
 
-    public static void removeFlags(ItemMeta meta) {
-        // Apply common flags directly
-        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES); // Hides generic attribute modifiers
-        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);   // Hides enchantment glint/names
-
-        // Try to hide all tooltips with the most comprehensive flag (1.20.5+)
-        try {
-            meta.addItemFlags(ItemFlag.valueOf("HIDE_TOOLTIP")); // For Minecraft 1.20.5+
-        } catch (IllegalArgumentException | NoSuchFieldError e) {
-            // If HIDE_TOOLTIP doesn't exist (older versions), fall back to other methods
-            // Duels.get().getLogger().warning("HIDE_TOOLTIP ItemFlag not found. Falling back to older methods.");
-            try {
-                // For 1.19+ (Paper/Spigot might have this)
-                meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
-            } catch (IllegalAccessError | NoSuchFieldError ex) {
-                // For even older versions or specific forks, try reflection for HIDE_POTION_EFFECTS
-                try {
-                    Field hidePotionEffects = ItemFlag.class.getDeclaredField("HIDE_POTION_EFFECTS");
-                    meta.addItemFlags((ItemFlag) hidePotionEffects.get(null));
-                } catch (IllegalAccessException | NoSuchFieldException reflectionEx) {
-                    // Duels.get().getLogger().warning("Could not hide additional tooltips on this server version.");
-                }
-            }
+    public static void setFlags(ItemStack item) {
+        if (item == null || !item.hasItemMeta()) {
+            return;
         }
 
-        // --- Consider these points regarding your addAttributeModifier calls ---
-        // If the goal is to hide attributes that are *naturally* on the item (like Mace's damage),
-        // then HIDE_ATTRIBUTES is sufficient.
-        // If you are adding custom attributes *only* to hide them, you can remove these lines.
-        // If these attributes (5.0D armor, 5.0D attack) are meant to be *actual stats* but just not shown in tooltip,
-        // then keep them, and HIDE_ATTRIBUTES will do its job.
+        ItemMeta meta = item.getItemMeta();
+        meta.addItemFlags(ItemFlag.values());
         try {
-            NamespacedKey key1 = new NamespacedKey(Main.get(), "armor");
-            addAttributeModifier(meta, Attribute.ARMOR, key1, 5.0D, Operation.ADD_NUMBER, EquipmentSlotGroup.ARMOR);
-            NamespacedKey key2 = new NamespacedKey(Main.get(), "custom_attack_modifier");
-            addAttributeModifier(meta, Attribute.ATTACK_DAMAGE, key2, 5.0D, Operation.ADD_NUMBER, EquipmentSlotGroup.HAND);
-        } catch (NoSuchFieldError noSuchFieldError) {
-            // This catches if Attribute.ARMOR or Attribute.ATTACK_DAMAGE don't exist (very old versions)
-            // or if EquipmentSlotGroup doesn't exist (pre-1.20.5)
-            // Duels.get().getLogger().warning("Could not add attribute modifiers due to missing fields.");
+            meta.removeItemFlags(ItemFlag.valueOf("HIDE_LORE"));
+        } catch (IllegalArgumentException e) {
+            // ignored
         }
+        if (!meta.hasAttributeModifiers()) {
+            // Add a dummy attribute modifier. If the only attribute modifiers present are the default ones, it won't
+            // actually hide them when we ask using ItemFlags.
+            AttributeModifier modifier = createAttributeModifier("itemflags", 0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
+            meta.addAttributeModifier(XAttribute.KNOCKBACK_RESISTANCE.get(), modifier);
+        }
+        item.setItemMeta(meta);
     }
 
-    public static void addAttributeModifier(ItemMeta item, Attribute attribute, NamespacedKey key, double amount, Operation operation, EquipmentSlotGroup group) {
-        AttributeModifier modifier = new AttributeModifier(key, amount, operation, group); // Use key.toString() for the name
-        item.addAttributeModifier(attribute, modifier);
+    @SuppressWarnings({"UnstableApiUsage", "removal"})
+    public static AttributeModifier createAttributeModifier(String modName, double amount, AttributeModifier.Operation operation, EquipmentSlot slot) {
+        NamespacedKey key = new NamespacedKey(Main.get(), modName);
+        try {
+            return new AttributeModifier(key, amount, operation, slot == null ? EquipmentSlotGroup.ANY : slot.getGroup());
+        } catch (NoSuchMethodError error) {
+            return new AttributeModifier(UUID.randomUUID(), key.toString(), amount, operation, slot);
+        }
     }
 }

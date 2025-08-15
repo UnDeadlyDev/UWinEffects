@@ -46,14 +46,21 @@ public class PlayerListener implements Listener {
     public void onKick(PlayerKickEvent e) {
         Player p = e.getPlayer();
         plugin.getDb().savePlayerRemove(p);
+        removeEffect(p);
     }
 
     @EventHandler
     public void onQuit(@NotNull PlayerQuitEvent e) {
         Player p = e.getPlayer();
         plugin.getDb().savePlayerRemove(p);
+        removeEffect(p);
     }
 
+    private void removeEffect(Player player) {
+        if (plugin.getCos().winEffectsTask.containsKey(player.getUniqueId())) {
+            plugin.getCos().winEffectsTask.remove(player.getUniqueId()).stop();
+        }
+    }
     @EventHandler
     public void PlayerJoinUpdateCheck(PlayerJoinEvent e) {
         if (plugin.getConfig().getBoolean("update-check")) {

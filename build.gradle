@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'com.undeadlydev'
-version '1.0.1'
+version '1.0.2'
 
 bukkit {
     name = 'UWinEffects'
@@ -21,14 +21,15 @@ bukkit {
 repositories {
     mavenCentral()
 
-    maven { url 'https://jitpack.io' }
+    // SPIGOT
     maven { url 'https://hub.spigotmc.org/nexus/content/groups/public/' }
-    maven { url 'https://libraries.minecraft.net/' } // Minecraft Libraries
-    maven { url 'https://repo.codemc.io/repository/maven-snapshots/' }
-    maven { url 'https://repo.codemc.org/repository/maven-public/' }
+    // VAULT
+    maven { url 'https://jitpack.io' }
+    // PLACEHOLDERSAPI
     maven { url 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
-    maven { url 'https://repo.papermc.io/repository/maven-public/'}
-    maven { url 'https://maven.enginehub.org/repo/'}
+    //NBTEditor
+    maven { url 'https://repo.codemc.org/repository/maven-public/' }
+    // CITIZENS
     maven {
         name = 'citizens-repo'
         url = 'https://maven.citizensnpcs.co/repo'
@@ -51,17 +52,18 @@ dependencies {
         exclude group: '*', module: '*'
     }
 
+    // https://github.com/Bastian/bstats-metrics
+    implementation 'org.bstats:bstats-bukkit:3.1.0'
+
     // https://github.com/BananaPuncher714/NBTEditor
-    implementation 'io.github.bananapuncher714:nbteditor:7.19.9'
+    implementation 'io.github.bananapuncher714:nbteditor:7.19.10'
 
     // https://github.com/CryptoMorin/XSeries
-    library 'com.github.cryptomorin:XSeries:13.3.3'
+    library 'com.github.cryptomorin:XSeries:13.3.2'
 
     // https://github.com/brettwooldridge/HikariCP
     library'com.zaxxer:HikariCP:6.3.0'
 
-    // https://github.com/Bastian/bstats-metrics
-    implementation 'org.bstats:bstats-bukkit:3.1.0'
 }
 
 shadowJar {
