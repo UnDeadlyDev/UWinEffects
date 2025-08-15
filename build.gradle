@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'com.undeadlydev'
-version '1.0.0'
+version '1.0.1'
 
 bukkit {
     name = 'UWinEffects'
@@ -81,6 +81,50 @@ java {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
     options.compilerArgs << '-Xlint:unchecked' << '-Xlint:deprecation'
+}
+
+tasks.register('validateLibraryLoaderDeps') {
+    doLast {
+        def repoUrl = "https://maven-central.storage-download.googleapis.com/maven2"
+        def configToCheck = configurations.library
+
+        def externalDeps = configToCheck.allDependencies.findAll {
+            it instanceof ExternalModuleDependency && it.version
+        }
+
+        def missing = []
+
+        externalDeps.each { dep ->
+            def groupPath = dep.group.replace('.', '/')
+            def fullUrl = "${repoUrl}/${groupPath}/${dep.name}/${dep.version}/${dep.name}-${dep.version}.pom"
+            def gav = "${dep.group}:${dep.name}:${dep.version}"
+
+            try {
+                def connection = new URL(fullUrl).openConnection() as HttpURLConnection
+                connection.requestMethod = "HEAD"
+                connection.connectTimeout = 5000
+                connection.readTimeout = 5000
+
+                if (connection.responseCode == 200) {
+                    println "Found: ${gav}"
+                } else {
+                    println "Missing: ${gav} (HTTP ${connection.responseCode})"
+                    missing << fullUrl
+                }
+            } catch (Exception e) {
+                println "Error checking ${gav} - ${e.message}"
+                missing << fullUrl
+            }
+        }
+
+        if (!missing.isEmpty()) {
+            println "The following dependencies were not found:"
+            missing.each { println " - $it" }
+            throw new GradleException("Some dependencies were not found in the repository.")
+        } else {
+            println "All dependencies found in ${repoUrl}."
+        }
+    }
 }
 
 processResources {
