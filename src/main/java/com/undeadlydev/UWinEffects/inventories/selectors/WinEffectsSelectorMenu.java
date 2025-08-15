@@ -18,7 +18,7 @@ public class WinEffectsSelectorMenu extends UltraInventory {
 
     public WinEffectsSelectorMenu(Main plugin, String name) {
         super(name);
-        this.title = plugin.getLang().get("menus." + name+ ".title");
+        this.title = plugin.getLang().get("menus." + name + ".title");
         reload();
     }
 
@@ -44,16 +44,11 @@ public class WinEffectsSelectorMenu extends UltraInventory {
                     ItemStack litem = plugin.getMenus().getConfig().getItemStack("menus." + name + ".items." + c);
                     AtomicReference<String> selected = new AtomicReference<>("NONE");
                     ItemStack item = ItemBuilder.parse(plugin.getMenus().getConfig().getItemStack("menus." + name + ".items." + c).clone(), selected::set,
-                            new String[]{"{SELECTED}", plugin.getLang().get("menus." + name + ".selected.nameItem"),
-                                    plugin.getLang().get("menus." + name + ".selected.loreItem")},
-                            new String[]{"{LAST}", plugin.getLang().get("menus.last.nameItem"),
-                                    plugin.getLang().get("menus.last.loreItem")},
-                            new String[]{"{NEXT}", plugin.getLang().get("menus.next.nameItem"),
-                                    plugin.getLang().get("menus.next.loreItem")},
-                            new String[]{"{CLOSE}", plugin.getLang().get("menus." + name + ".close.nameItem"),
-                                    plugin.getLang().get("menus." + name + ".close.loreItem")},
-                            new String[]{"{DESELECT}", plugin.getLang().get("menus." + name + ".deselect.nameItem"),
-                                    plugin.getLang().get("menus." + name + ".deselect.loreItem")});
+                            new String[]{"{SELECTED}", plugin.getLang().get("menus.wineffectsselector.selected.nameItem"), plugin.getLang().get("menus.wineffectsselector.selected.loreItem")},
+                            new String[]{"{LAST}", plugin.getLang().get("menus.last.nameItem"), plugin.getLang().get("menus.last.loreItem")},
+                            new String[]{"{NEXT}", plugin.getLang().get("menus.next.nameItem"), plugin.getLang().get("menus.next.loreItem")},
+                            new String[]{"{CLOSE}", plugin.getLang().get("menus.wineffectsselector.close.nameItem"), plugin.getLang().get("menus.wineffectsselector.close.loreItem")},
+                            new String[]{"{DESELECT}", plugin.getLang().get("menus.wineffectsselector.deselect.nameItem"), plugin.getLang().get("menus.wineffectsselector.deselect.loreItem")});
                     contents.put(slot, item);
                     if (selected.get().equals("NONE")) {
                         extra.add(slot);
@@ -72,4 +67,7 @@ public class WinEffectsSelectorMenu extends UltraInventory {
         return slots.getOrDefault(name, -1);
     }
 
+    public Main getGameSlots() {
+        return null;
+    }
 }

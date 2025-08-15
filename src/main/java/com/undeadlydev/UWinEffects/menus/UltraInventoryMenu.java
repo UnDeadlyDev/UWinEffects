@@ -30,53 +30,25 @@ public class UltraInventoryMenu {
     private HashMap<String, Consumer<InventoryAction>> actions = new HashMap<>();
     private Main plugin;
 
-    public UltraInventoryMenu(Main plugin) {
-        this.plugin = plugin;
-    }
-
     public ConcurrentHashMap<UUID, String> getViews() {
         return views;
+    }
+
+    public UltraInventoryMenu(Main plugin) {
+        this.plugin = plugin;
     }
 
     public void loadMenus() {
         menus.clear();
         menus.put("wineffectsselector", new WinEffectsSelectorMenu(plugin, "wineffectsselector"));
-
         loadMenusActions();
-    }
-
-    public void openInventory(Player p, UltraInventory i) {
-        Inventory inv = Bukkit.createInventory(null, i.getRows() * 9, i.getTitle());
-        for (Map.Entry<Integer, ItemStack> entry : i.getConfig().entrySet()) {
-            Integer s = entry.getKey();
-            ItemStack it = entry.getValue();
-            inv.setItem(s, it);
-        }
-        p.openInventory(inv);
-    }
-
-    public void setInventory(String inv, Inventory close) {
-        if (menus.containsKey(inv)) {
-            Map<Integer, ItemStack> items = new HashMap<>();
-            for (int i = 0; i < close.getSize(); i++) {
-                ItemStack it = close.getItem(i);
-                if (it == null || it.getType().equals(Material.AIR)) {
-                    items.put(i, XMaterial.AIR.parseItem());
-                } else {
-                    items.put(i, it);
-                }
-
-            }
-            menus.get(inv).setConfig(items);
-            menus.get(inv).save();
-        }
     }
 
     public UltraInventory getMenus(String t) {
         return menus.get(t);
     }
 
-    public void createWinEffectSelectorMenu(Player p) {
+    public void createWinEffectMenu(Player p) {
         int page = pages.get(p.getUniqueId());
         WinEffectsSelectorMenu selector = (WinEffectsSelectorMenu) getMenus("wineffectsselector");
         Inventory inv = Bukkit.createInventory(null, selector.getRows() * 9, plugin.getLang().get(p, "menus.wineffectsselector.title"));
@@ -137,67 +109,6 @@ public class UltraInventoryMenu {
         pages.put(p.getUniqueId(), pages.get(p.getUniqueId()) - 1);
     }
 
-    public void loadMenusActions() {
-        actions.put(plugin.getLang().get("menus.wineffectsselector.title"), (b) -> {
-            InventoryClickEvent e = b.getInventoryClickEvent();
-            Player p = b.getPlayer();
-            if (plugin.getSm().isSetupInventory(p))
-                return;
-            String display = checkDisplayName(b);
-            if (display.equals("none"))
-                return;
-            DBPlayer sw = plugin.getDb().getDBPlayer(p);
-            if (display.equals(plugin.getLang().get(p, "menus.next.nameItem"))) {
-                plugin.getUim().addPage(p);
-                plugin.getUim().createWinEffectSelectorMenu(p);
-                return;
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.last.nameItem"))) {
-                plugin.getUim().removePage(p);
-                plugin.getUim().createWinEffectSelectorMenu(p);
-                return;
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.wineffectsselector.kit.nameItem"))) {
-                return;
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.wineffectsselector.deselect.nameItem"))) {
-                if (sw.getWinEffect() == 999999) {
-                    p.sendMessage(plugin.getLang().get(p, "messages.noSelect"));
-                    return;
-                }
-                sw.setWinEffect(999999);
-                p.sendMessage(plugin.getLang().get(p, "messages.deselectWinEffect"));
-                plugin.getUim().createWinEffectSelectorMenu(p);
-                return;
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.wineffectsselector.close.nameItem"))) {
-            	p.closeInventory();
-                return;
-            }
-            UWinEffect k = plugin.getCos().getWinEffectByItem(e.getCurrentItem());
-            if (k == null) {
-                return;
-            }
-            if (p.hasPermission(k.getAutoGivePermission())) {
-                sw.setWinEffect(k.getId());
-                p.sendMessage(plugin.getLang().get(p, "messages.selectWinEffect").replaceAll("<wineffect>", k.getName()));
-                plugin.getUim().createWinEffectSelectorMenu(p);
-                return;
-            }
-            if (!sw.getWineffects().contains(k.getId())) {
-                if (k.needPermToBuy() && !p.hasPermission(k.getPermission())) {
-                    p.sendMessage(plugin.getLang().get(p, "messages.noPermit"));
-                } else {
-                    plugin.getShm().buy(p, k, k.getName());
-                }
-            } else {
-                sw.setWinEffect(k.getId());
-                p.sendMessage(plugin.getLang().get(p, "messages.selectWinEffect").replaceAll("<wineffect>", k.getName()));
-            }
-            plugin.getUim().createWinEffectSelectorMenu(p);
-        });
-    }
-
     public String checkDisplayName(InventoryAction b) {
         InventoryClickEvent e = b.getInventoryClickEvent();
         e.setCancelled(true);
@@ -223,8 +134,90 @@ public class UltraInventoryMenu {
         return actions;
     }
 
-    public void removeInventory(Player p) {
-        pages.remove(p.getUniqueId());
+    public void openInventory(Player p, UltraInventory i) {
+        Inventory inv = Bukkit.createInventory(null, i.getRows() * 9, i.getTitle());
+        for (Map.Entry<Integer, ItemStack> entry : i.getConfig().entrySet()) {
+            Integer s = entry.getKey();
+            ItemStack it = entry.getValue();
+            inv.setItem(s, it);
+        }
+        p.openInventory(inv);
+    }
+
+    public void setInventory(String inv, Inventory close) {
+        if (menus.containsKey(inv)) {
+            Map<Integer, ItemStack> items = new HashMap<>();
+            for (int i = 0; i < close.getSize(); i++) {
+                ItemStack it = close.getItem(i);
+                if (it == null || it.getType().equals(Material.AIR)) {
+                    items.put(i, XMaterial.AIR.parseItem());
+                } else {
+                    items.put(i, it);
+                }
+
+            }
+            menus.get(inv).setConfig(items);
+            menus.get(inv).save();
+        }
+    }
+
+    public void loadMenusActions() {
+        actions.put(plugin.getLang().get("menus.wineffectsselector.title"), (b) -> {
+            InventoryClickEvent e = b.getInventoryClickEvent();
+            Player p = b.getPlayer();
+            if (plugin.getSm().isSetupInventory(p)) return;
+            String display = checkDisplayName(b);
+            if (display.equals("none")) return;
+            DBPlayer sw = plugin.getDb().getDBPlayer(p);
+            if (display.equals(plugin.getLang().get(p, "menus.next.nameItem"))) {
+                plugin.getUim().addPage(p);
+                plugin.getUim().createWinEffectMenu(p);
+                return;
+            }
+            if (display.equals(plugin.getLang().get(p, "menus.last.nameItem"))) {
+                plugin.getUim().removePage(p);
+                plugin.getUim().createWinEffectMenu(p);
+                return;
+            }
+            if (display.equals(plugin.getLang().get(p, "menus.wineffectsselector.selected.nameItem"))) {
+                return;
+            }
+            if (display.equals(plugin.getLang().get(p, "menus.wineffectsselector.deselect.nameItem"))) {
+                if (sw.getWinEffect() == 999999) {
+                    p.sendMessage(plugin.getLang().get(p, "messages.noSelect"));
+                    return;
+                }
+                sw.setWinEffect(999999);
+                p.sendMessage(plugin.getLang().get(p, "messages.deselectWinEffect"));
+                plugin.getUim().createWinEffectMenu(p);
+                return;
+            }
+            if (display.equals(plugin.getLang().get(p, "menus.wineffectsselector.close.nameItem"))) {
+                p.closeInventory();
+                return;
+            }
+            UWinEffect k = plugin.getCos().getWinEffectByItem(e.getCurrentItem());
+            if (k == null) {
+                return;
+            }
+            if (p.hasPermission(k.getAutoGivePermission())) {
+                sw.setWinEffect(k.getId());
+                p.sendMessage(plugin.getLang().get(p, "messages.selectWinEffect").replaceAll("<wineffect>", k.getName()));
+                plugin.getUim().createWinEffectMenu(p);
+                return;
+            }
+            if (!sw.getWineffects().contains(k.getId())) {
+                if (k.needPermToBuy() && !p.hasPermission(k.getPermission())) {
+                    p.sendMessage(plugin.getLang().get(p, "messages.noPermit"));
+                } else {
+                    plugin.getShm().buy(p, k, k.getName());
+                }
+            } else {
+                sw.setWinEffect(k.getId());
+                p.sendMessage(plugin.getLang().get(p, "messages.selectWinEffect").replaceAll("<wineffect>", k.getName()));
+            }
+            plugin.getUim().createWinEffectMenu(p);
+        });
     }
 
 }

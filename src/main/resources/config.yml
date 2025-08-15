@@ -6,8 +6,12 @@ mysql:
   username: bby
   password: Plugin
 
+update-check: true
+debugMode: false
+redPanelInLocked: true
+progressBarAmount: 10
+
 addons:
   PlaceholderAPI: true
   Vault: false
 
-redPanelInLocked: true

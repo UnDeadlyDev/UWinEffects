@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'com.undeadlydev'
-version '1.0'
+version '1.0.0'
 
 bukkit {
     name = 'UWinEffects'

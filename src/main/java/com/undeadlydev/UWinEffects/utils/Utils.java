@@ -17,6 +17,7 @@ import org.bukkit.inventory.AbstractHorseInventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Utils {
@@ -77,5 +78,42 @@ public class Utils {
             }
             return config.getConfig().getItemStack(path + ".item");
         }
+    }
+
+    public static String getProgressBar(int current, int max) {
+        float percent = (float) current / max;
+        double por = percent * 100;
+        return new DecimalFormat("####.#").format(por);
+    }
+
+    public static String getProgressBar(int current, int max, int totalBars) {
+        float percent = (float) current / max;
+        int progressBars = (int) (totalBars * percent);
+        int leftOver = (totalBars - progressBars);
+        StringBuilder sb = new StringBuilder();
+        StringBuilder in = new StringBuilder();
+        StringBuilder out = new StringBuilder();
+        int a = 0;
+        for (int i = 0; i < progressBars; i++) {
+            if (a >= totalBars) {
+                break;
+            }
+            in.append(plugin.getLang().get("progressBar.symbol"));
+            a++;
+        }
+        for (int i = 0; i < leftOver; i++) {
+            if (a >= totalBars) {
+                break;
+            }
+            out.append(plugin.getLang().get("progressBar.symbol"));
+            a++;
+        }
+        sb.append(plugin.getLang().get("progressBar.in"));
+        sb.append(in.toString());
+        sb.append(plugin.getLang().get("progressBar.out"));
+        sb.append(out.toString());
+        double por = percent * 100;
+        String p = new DecimalFormat("####.#").format(por);
+        return plugin.getLang().get("progressBar.finish").replaceAll("<progress>", sb.toString()).replaceAll("<percent>", p);
     }
 }

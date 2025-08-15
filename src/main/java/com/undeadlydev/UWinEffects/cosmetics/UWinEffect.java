@@ -4,6 +4,7 @@ import com.cryptomorin.xseries.XMaterial;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.data.DBPlayer;
+import com.undeadlydev.UWinEffects.interfaces.Purchasable;
 import com.undeadlydev.UWinEffects.superclass.Cosmetic;
 import com.undeadlydev.UWinEffects.utils.ItemBuilder;
 import com.undeadlydev.UWinEffects.utils.Utils;
@@ -14,7 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
-public class UWinEffect extends Cosmetic {
+public class UWinEffect extends Cosmetic implements Purchasable {
 
     private String type;
     private ItemStack icon;

@@ -18,7 +18,7 @@ wineffects:
     slot: 11
     page: 1
     permission: uwineffects.fireworks
-    autoGivePermission: uwineffect.autogive.Fireworks
+    autoGivePermission: uwineffect.autogive.fireworks
     needPermToBuy: false
 
   vulcanwool:
@@ -40,7 +40,7 @@ wineffects:
     slot: 12
     page: 1
     permission: uwineffects.vulcanwool
-    autoGivePermission: uwineffect.autogive.Vulcan Wool
+    autoGivePermission: uwineffect.autogive.vulcanwool
     needPermToBuy: false
 
   vulcanfire:
@@ -62,7 +62,7 @@ wineffects:
     slot: 13
     page: 1
     permission: uwineffects.vulcanfire
-    autoGivePermission: uwineffect.autogive.Vulcan Fire
+    autoGivePermission: uwineffect.autogive.vulcanfire
     needPermToBuy: false
 
   icewalker:
@@ -83,7 +83,7 @@ wineffects:
     slot: 14
     page: 1
     permission: uwineffects.icewalker
-    autoGivePermission: uwineffect.autogive.Ice Walker
+    autoGivePermission: uwineffect.autogive.icewalker
     needPermToBuy: false
 
   notes:
@@ -104,7 +104,7 @@ wineffects:
     slot: 15
     page: 1
     permission: uwineffects.notes
-    autoGivePermission: uwineffect.autogive.Notes
+    autoGivePermission: uwineffect.autogive.notes
     needPermToBuy: false
 
   chickens:
@@ -212,7 +212,7 @@ wineffects:
     slot: 24
     page: 1
     permission: uwineffects.pigland
-    autoGivePermission: uwineffect.autogive.Pig Land
+    autoGivePermission: uwineffect.autogive.pigland
     needPermToBuy: true
     maxOfPlayerNegative: 5
     maxOfPlayerPositive: 5
@@ -240,7 +240,7 @@ wineffects:
     slot: 29
     page: 1
     permission: uwineffects.meteors
-    autoGivePermission: uwineffect.autogive.Meteors
+    autoGivePermission: uwineffect.autogive.meteors
     needPermToBuy: true
     maxOfCenter: 1.0
     heightAbovePlayer: 10
@@ -271,7 +271,7 @@ wineffects:
     firstUp: 10
     maxRandomUp: 20
     permission: uwineffects.anvilland
-    autoGivePermission: uwineffect.autogive.AnvilLand
+    autoGivePermission: uwineffect.autogive.anvilland
     needPermToBuy: true
     taskTick: 5
 
@@ -297,7 +297,7 @@ wineffects:
     page: 1
     taskTick: 5
     permission: uwineffects.wolfs
-    autoGivePermission: uwineffect.autogive.Wolfs
+    autoGivePermission: uwineffect.autogive.wolfs
     needPermToBuy: false
 
   destroyisland:

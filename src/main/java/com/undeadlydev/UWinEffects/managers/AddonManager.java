@@ -7,7 +7,7 @@ import com.undeadlydev.UWinEffects.addons.placeholders.PlaceholderAPIAddon;
 import com.undeadlydev.UWinEffects.data.DBPlayer;
 import com.undeadlydev.UWinEffects.interfaces.EconomyAddon;
 import com.undeadlydev.UWinEffects.interfaces.PlaceholderAddon;
-import net.citizensnpcs.api.util.Placeholders;
+import com.undeadlydev.UWinEffects.placeholders.Placeholders;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -35,6 +35,7 @@ public class AddonManager {
         Main plugin = Main.get();
         if (check("PlaceholderAPI")) {
             placeholder = new PlaceholderAPIAddon();
+            new Placeholders().register();
         }
         if (check("Vault")) {
             economy = new VaultAddon();

@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class SetupManager {
-
     private final HashMap<UUID, UltraInventory> setupInventory = new HashMap<>();
 
     public void setSetupInventory(Player p, UltraInventory a) {

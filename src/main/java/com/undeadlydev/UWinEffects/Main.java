@@ -9,9 +9,13 @@ import com.undeadlydev.UWinEffects.listeners.MenuListener;
 import com.undeadlydev.UWinEffects.listeners.PlayerListener;
 import com.undeadlydev.UWinEffects.managers.*;
 import com.undeadlydev.UWinEffects.menus.UltraInventoryMenu;
+import com.undeadlydev.UWinEffects.superclass.SpigotUpdater;
 import com.undeadlydev.UWinEffects.utils.ChatUtils;
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,6 +32,7 @@ public class Main extends JavaPlugin {
     private UltraInventoryMenu uim;
     private SetupManager sm;
     private ShopManager shm;
+    private int pluginId, resourceId;
 
     public static Main get() {
         return instance;
@@ -73,25 +78,40 @@ public class Main extends JavaPlugin {
         return this.adm;
     }
 
+    public int getResourceId() {
+        return resourceId;
+    }
+
     @Override
     public void onEnable() {
         instance = this;
+        pluginId = 26923;
+        resourceId = 128009;
         getConfig().options().copyDefaults(true);
         saveConfig();
+
         lang = new FileManager("lang", true);
-        wineffect = new FileManager("cosmetics/wineffect", false);
         menus = new FileManager("menus", false);
+        wineffect = new FileManager("cosmetics/wineffect", false);
+
         adm = new AddonManager();
+        adm.reload();
+
         cos = new CosmeticManager(this);
         cos.reload();
+
         uim = new UltraInventoryMenu(this);
         uim.loadMenus();
+
         shm = new ShopManager();
         sm = new SetupManager();
+
         new UwinEffectsCMD(this);
         new winEffectsCMD(this);
+
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         getServer().getPluginManager().registerEvents(new MenuListener(this), this);
+
         gson = new Gson();
         db = new MySQLDatabase(this);
         sendLogMessage("&7-----------------------------------");
@@ -102,6 +122,8 @@ public class Main extends JavaPlugin {
         sendLogMessage("&fThanks for use my plugin :D");
         sendLogMessage(" ");
         sendLogMessage("&7-----------------------------------");
+        loadMetrics();
+        CheckUpdate();
     }
 
     @Override
@@ -125,8 +147,13 @@ public class Main extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(ChatUtils.parseLegacy("&7[&5&lUWinEffetcs&7] &8| " + msg));
     }
 
+    public void loadMetrics() {
+        Metrics metrics = new Metrics(this, pluginId);
+        metrics.addCustomChart(new SimplePie("placeholderapi_enabled", () -> adm.isPlaceholderAPIEnabled() ? "Yes" : "No"));
+    }
+
     public void sendDebugMessage(String... s) {
-        if (true) {
+        if (getConfig().getBoolean("debugMode")) {
             for (String st : s) {
                 Bukkit.getConsoleSender().sendMessage("§b[UWE Debug] §8| §e" + st);
             }
@@ -144,5 +171,22 @@ public class Main extends JavaPlugin {
 
     public void reloadLang() {
         lang.reload();
+    }
+
+    private void CheckUpdate() {
+        if(getConfig().getBoolean("update-check")) {
+            new BukkitRunnable() {
+                public void run() {
+                    SpigotUpdater updater = new SpigotUpdater(instance, resourceId);
+                    try {
+                        if (updater.checkForUpdates()) {
+                            Bukkit.getConsoleSender().sendMessage(getLang().get("messages.notifyUpdate").replace("{CURRENT}", getDescription().getVersion()).replace("{NEW}", updater.getLatestVersion()).replace("{LINK}", updater.getResourceURL()));
+                        }
+                    } catch (Exception e) {
+                        sendLogMessage("Failed to check for a update on spigot.");
+                    }
+                }
+            }.runTask(this);
+        }
     }
 }
