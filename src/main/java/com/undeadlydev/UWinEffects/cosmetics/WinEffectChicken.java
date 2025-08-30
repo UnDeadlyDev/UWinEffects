@@ -4,6 +4,7 @@ import com.cryptomorin.xseries.XSound;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
+import com.undeadlydev.UWinEffects.managers.CustomSound;
 import org.bukkit.Location;
 import org.bukkit.entity.Chicken;
 import org.bukkit.entity.Player;
@@ -14,7 +15,7 @@ import org.bukkit.util.Vector;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class  WinEffectChicken implements WinEffect {
+public class WinEffectChicken implements WinEffect {
 
     private final ArrayList<Chicken> chickens = new ArrayList<>();
     private BukkitTask task;
@@ -29,11 +30,13 @@ public class  WinEffectChicken implements WinEffect {
             public void run() {
                 if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
                     stop();
+                    Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
                 Chicken chicken = spawnChicken(p.getLocation(), random(-0.5, 0.5), random(-0.5, 0.5));
+                plugin.getCollisionAPI().setCollidable(chicken, false);
+                chicken.getLocation().getWorld().playSound(chicken.getLocation(), CustomSound.WINEFFECTS_CHICKEN.getSound(), CustomSound.WINEFFECTS_CHICKEN.getVolume(), CustomSound.WINEFFECTS_CHICKEN.getPitch());
 
-                chicken.getLocation().getWorld().playSound(chicken.getLocation(), XSound.ENTITY_CHICKEN_EGG.parseSound(), 1.0f, 1.0f);
                 chickens.add(chicken);
                 for (Chicken c : new ArrayList<>(chickens)) {
                     if (c.getTicksLived() > 30) {
@@ -47,9 +50,16 @@ public class  WinEffectChicken implements WinEffect {
 
     @Override
     public void stop() {
+        // Remove all tracked chickens
+        for (Chicken chicken : chickens) {
+            if (chicken != null && !chicken.isDead()) {
+                chicken.remove();
+            }
+        }
         chickens.clear();
         if (task != null) {
             task.cancel();
+            task = null;
         }
     }
 
@@ -68,7 +78,6 @@ public class  WinEffectChicken implements WinEffect {
         return chicken;
     }
 
-	@Override
-	public void loadCustoms(Main plugin, String path) {}
-
+    @Override
+    public void loadCustoms(Main plugin, String path) {}
 }

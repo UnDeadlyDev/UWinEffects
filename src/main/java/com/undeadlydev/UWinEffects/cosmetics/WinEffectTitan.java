@@ -24,6 +24,7 @@ public class WinEffectTitan implements WinEffect {
                 if (p == null || !p.isOnline() || !world.getName().equals(p.getWorld().getName())) {
                     scaleAttribute.setBaseValue(1.0);
                     stop();
+                    Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
                 scaleAttribute.setBaseValue(35.0);

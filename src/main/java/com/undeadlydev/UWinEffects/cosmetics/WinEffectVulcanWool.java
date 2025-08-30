@@ -4,6 +4,7 @@ import com.cryptomorin.xseries.XMaterial;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
+import com.undeadlydev.UWinEffects.managers.CustomSound;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.FallingBlock;
@@ -32,8 +33,10 @@ public class WinEffectVulcanWool implements WinEffect, Cloneable {
             public void run() {
                 if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
                     stop();
+                    Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
+                CustomSound.WINEFFECTS_VULCANWOOL.reproduce(p);
                 FallingBlock fallingBlock = spawnWool(p.getLocation(), random(-0.5, 0.5), random(-0.5, 0.5));
                 fallingBlock.setDropItem(false);
                 fires.add(fallingBlock);
@@ -55,6 +58,7 @@ public class WinEffectVulcanWool implements WinEffect, Cloneable {
                 fb.getLocation().getBlock().setType(Material.AIR);
             }
         }
+        fires.clear(); // Clear the list after cleanup
     }
 
     @Override
@@ -72,7 +76,7 @@ public class WinEffectVulcanWool implements WinEffect, Cloneable {
         return fallingBlock;
     }
 
-	@Override
-	public void loadCustoms(Main plugin, String path) {}
+    @Override
+    public void loadCustoms(Main plugin, String path) {}
 
 }

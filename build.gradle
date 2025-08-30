@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'com.undeadlydev'
-version '1.0.2'
+version '1.0.4'
 
 bukkit {
     name = 'UWinEffects'
@@ -59,10 +59,12 @@ dependencies {
     implementation 'io.github.bananapuncher714:nbteditor:7.19.10'
 
     // https://github.com/CryptoMorin/XSeries
-    library 'com.github.cryptomorin:XSeries:13.3.2'
+    library 'com.github.cryptomorin:XSeries:13.3.3'
 
     // https://github.com/brettwooldridge/HikariCP
-    library'com.zaxxer:HikariCP:6.3.0'
+    library'com.zaxxer:HikariCP:7.0.2'
+
+    implementation 'com.github.datatags.MobChipLite:mobchip-bukkit:1.10.14'
 
 }
 
@@ -72,6 +74,10 @@ shadowJar {
     def path = 'com.undeadlydev.UWinEffects.libraries'
     relocate 'org.bstats', path +'.bstats'
     relocate 'io.github.bananapuncher714.nbteditor', path + '.NBTEditor'
+    minimize {
+        exclude(dependency('com.github.datatags.MobChipLite:.*:.*'))
+    }
+    relocate('me.gamercoder215.mobchip', path + '.mobchip')
 }
 
 java {

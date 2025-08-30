@@ -15,12 +15,11 @@ wineffects:
     name: Fireworks
     price: 100
     isBuy: true
-    slot: 11
+    slot: 10
     page: 1
     permission: uwineffects.fireworks
     autoGivePermission: uwineffect.autogive.fireworks
     needPermToBuy: false
-
   vulcanwool:
     id: 1
     icon:
@@ -37,12 +36,11 @@ wineffects:
     name: Vulcan Wool
     price: 5000
     isBuy: true
-    slot: 12
+    slot: 11
     page: 1
     permission: uwineffects.vulcanwool
     autoGivePermission: uwineffect.autogive.vulcanwool
     needPermToBuy: false
-
   vulcanfire:
     id: 2
     icon:
@@ -59,12 +57,11 @@ wineffects:
     name: Vulcan Fire
     price: 5000
     isBuy: true
-    slot: 13
+    slot: 12
     page: 1
     permission: uwineffects.vulcanfire
     autoGivePermission: uwineffect.autogive.vulcanfire
     needPermToBuy: false
-
   icewalker:
     id: 3
     icon:
@@ -80,12 +77,11 @@ wineffects:
     name: Ice Walker
     price: 5000
     isBuy: true
-    slot: 14
+    slot: 13
     page: 1
     permission: uwineffects.icewalker
     autoGivePermission: uwineffect.autogive.icewalker
     needPermToBuy: false
-
   notes:
     id: 4
     icon:
@@ -101,12 +97,11 @@ wineffects:
     name: Notes
     price: 5000
     isBuy: true
-    slot: 15
+    slot: 14
     page: 1
     permission: uwineffects.notes
     autoGivePermission: uwineffect.autogive.notes
     needPermToBuy: false
-
   chickens:
     id: 5
     icon:
@@ -122,12 +117,11 @@ wineffects:
     name: chickens
     price: 5000
     isBuy: true
-    slot: 20
+    slot: 15
     page: 1
     permission: uwineffects.chickens
     autoGivePermission: uwineffect.autogive.chickens
     needPermToBuy: false
-
   guardian:
     id: 6
     icon:
@@ -143,12 +137,11 @@ wineffects:
     name: guardian
     price: 5000
     isBuy: true
-    slot: 21
+    slot: 16
     page: 1
     permission: uwineffects.guardian
     autoGivePermission: uwineffect.autogive.guardian
     needPermToBuy: false
-
   daredevil:
     id: 7
     icon:
@@ -164,12 +157,11 @@ wineffects:
     name: daredevil
     price: 5000
     isBuy: true
-    slot: 22
+    slot: 19
     page: 1
     permission: uwineffects.daredevil
     autoGivePermission: uwineffect.autogive.daredevil
     needPermToBuy: false
-
   twerk:
     id: 8
     type: twerk
@@ -186,12 +178,11 @@ wineffects:
     name: Twerk Apocalypse
     price: 50000
     isBuy: true
-    slot: 32
+    slot: 20
     page: 1
     permission: uwineffects.twerk
     autoGivePermission: uwineffect.autogive.twerk
     needPermToBuy: true
-
   pigland:
     id: 9
     type: pigland
@@ -209,7 +200,7 @@ wineffects:
     name: Pig Land
     price: 5000
     isBuy: true
-    slot: 24
+    slot: 21
     page: 1
     permission: uwineffects.pigland
     autoGivePermission: uwineffect.autogive.pigland
@@ -219,7 +210,6 @@ wineffects:
     firstUp: 10
     maxRandomUp: 20
     taskTick: 5
-
   meteors:
     id: 10
     type: meteors
@@ -237,7 +227,7 @@ wineffects:
     name: Meteors
     price: 5000
     isBuy: true
-    slot: 29
+    slot: 22
     page: 1
     permission: uwineffects.meteors
     autoGivePermission: uwineffect.autogive.meteors
@@ -245,7 +235,6 @@ wineffects:
     maxOfCenter: 1.0
     heightAbovePlayer: 10
     taskTick: 2
-
   anvilland:
     id: 11
     type: anvilland
@@ -264,7 +253,7 @@ wineffects:
     name: AnvilLand
     price: 5000
     isBuy: true
-    slot: 30
+    slot: 23
     page: 1
     maxOfPlayerNegative: 5
     maxOfPlayerPositive: 5
@@ -274,7 +263,6 @@ wineffects:
     autoGivePermission: uwineffect.autogive.anvilland
     needPermToBuy: true
     taskTick: 5
-
   wolfs:
     id: 12
     type: wolfs
@@ -293,13 +281,12 @@ wineffects:
     name: Wolfs
     price: 5000
     isBuy: true
-    slot: 31
+    slot: 24
     page: 1
     taskTick: 5
     permission: uwineffects.wolfs
     autoGivePermission: uwineffect.autogive.wolfs
     needPermToBuy: false
-
   destroyisland:
     id: 13
     type: destroyisland
@@ -319,7 +306,7 @@ wineffects:
     name: DestroyIsland
     price: 5000
     isBuy: true
-    slot: 23
+    slot: 25
     page: 1
     permission: uwineffects.destroyisland
     autoGivePermission: uwineffect.autogive.destroyisland
@@ -327,7 +314,6 @@ wineffects:
     spawnLaterTick: 20
     amountTNT: 4
     perFuseAmount: 15
-
   titan:
     id: 14
     type: titan
@@ -346,8 +332,31 @@ wineffects:
     name: Titan
     price: 50000
     isBuy: true
-    slot: 33
+    slot: 28
     page: 1
     permission: uwineffects.titan
     autoGivePermission: uwineffect.autogive.titan
+    needPermToBuy: false
+  wither:
+    id: 15
+    type: wither
+    icon:
+      material: NETHER_STAR
+      meta:
+        display-name: §4Wither Rider
+        lore: |-
+          §eDescription:
+          &7Ride a Wither straight
+          &7 from the nether
+          §7
+          <price>
+          §7
+          <status>
+    name: Wither
+    price: 50000
+    isBuy: true
+    slot: 29
+    page: 1
+    permission: uwineffects.wither
+    autoGivePermission: uwineffect.autogive.wither
     needPermToBuy: false

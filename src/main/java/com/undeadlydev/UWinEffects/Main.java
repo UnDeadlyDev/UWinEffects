@@ -1,9 +1,11 @@
 package com.undeadlydev.UWinEffects;
 
+import com.cryptomorin.xseries.XSound;
 import com.google.gson.Gson;
 import com.undeadlydev.UWinEffects.cmds.UwinEffectsCMD;
 import com.undeadlydev.UWinEffects.cmds.winEffectsCMD;
 import com.undeadlydev.UWinEffects.data.MySQLDatabase;
+import com.undeadlydev.UWinEffects.interfaces.Collision;
 import com.undeadlydev.UWinEffects.interfaces.Database;
 import com.undeadlydev.UWinEffects.listeners.MenuListener;
 import com.undeadlydev.UWinEffects.listeners.PlayerListener;
@@ -26,13 +28,14 @@ public class Main extends JavaPlugin {
     private static Main instance;
     private Database db;
     private Gson gson;
-    private FileManager wineffect, menus, lang;
+    private FileManager wineffect, menus, lang, sounds;
     private AddonManager adm;
     private CosmeticManager cos;
     private UltraInventoryMenu uim;
     private SetupManager sm;
     private ShopManager shm;
     private int pluginId, resourceId;
+    private Collision collision;
 
     public static Main get() {
         return instance;
@@ -74,12 +77,20 @@ public class Main extends JavaPlugin {
         return this.menus;
     }
 
+    public FileManager getSounds() {
+        return  sounds;
+    }
+
     public AddonManager getAdm() {
         return this.adm;
     }
 
     public int getResourceId() {
         return resourceId;
+    }
+
+    public Collision getCollisionAPI() {
+        return collision;
     }
 
     @Override
@@ -91,6 +102,7 @@ public class Main extends JavaPlugin {
         saveConfig();
 
         lang = new FileManager("lang", true);
+        sounds = new FileManager("sounds", true);
         menus = new FileManager("menus", false);
         wineffect = new FileManager("cosmetics/wineffect", false);
 
@@ -111,7 +123,13 @@ public class Main extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         getServer().getPluginManager().registerEvents(new MenuListener(this), this);
-
+        for (CustomSound cs : CustomSound.values()) {
+            String path = "sounds." + cs.name();
+            cs.setSound(((XSound)XSound.matchXSound(getSounds().get(path + ".sound")).orElse(XSound.BLOCK_NOTE_BLOCK_HAT)).parseSound());
+            cs.setVolume((float)getSounds().getDouble(path + ".volume"));
+            cs.setPitch((float)getSounds().getDouble(path + ".pitch"));
+        }
+        collision = new CollisionHelper();
         gson = new Gson();
         db = new MySQLDatabase(this);
         sendLogMessage("&7-----------------------------------");
@@ -162,6 +180,7 @@ public class Main extends JavaPlugin {
 
     public void reload() {
         reloadConfig();
+        wineffect.reload();
         lang.reload();
         menus.reload();
         adm.reload();

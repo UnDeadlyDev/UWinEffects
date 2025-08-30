@@ -36,11 +36,10 @@ public class WinEffectWardens implements WinEffect, Cloneable {
             public void run() {
                 if (p == null || !p.isOnline() || !world.getName().equals(p.getWorld().getName())) {
                     stop();
+                    Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
                 angle += add;
-
-                // Mover los Wardens alrededor del jugador
                 for (int i = 0; i < wardens.size(); i++) {
                     Warden w = wardens.get(i);
                     double currentAngle = angle + (i * (Math.PI * 2 / wardens.size())); // Distribuir alrededor del jugador

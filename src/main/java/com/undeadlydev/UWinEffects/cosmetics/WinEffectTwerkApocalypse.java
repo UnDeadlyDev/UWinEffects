@@ -38,6 +38,7 @@ public class WinEffectTwerkApocalypse implements WinEffect {
             public void run() {
                 if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
                     stop();
+                    Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
                 if (!npcs1.isEmpty()) {

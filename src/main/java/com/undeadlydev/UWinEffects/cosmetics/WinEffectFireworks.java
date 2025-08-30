@@ -24,6 +24,7 @@ public class WinEffectFireworks implements WinEffect, Cloneable {
             public void run() {
                 if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
                     stop();
+                    Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
                 Utils.firework(p.getLocation());

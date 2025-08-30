@@ -12,10 +12,12 @@ public class ShopManager {
         Main plugin = Main.get();
         if (!purchasable.isBuy()) {
             p.sendMessage(plugin.getLang().get(p, "messages.noBuy"));
+            CustomSound.NOBUY.reproduce(p);
             return;
         }
         if (plugin.getAdm().getCoins(p) < purchasable.getPrice()) {
             p.sendMessage(plugin.getLang().get(p, "messages.noCoins"));
+            CustomSound.NOBUY.reproduce(p);
             return;
         }
         DBPlayer sw = plugin.getDb().getDBPlayer(p);

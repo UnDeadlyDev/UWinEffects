@@ -10,17 +10,17 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class WinEffectMeteors implements WinEffect, Cloneable {
 
     private static boolean loaded = false;
-    private static int  taskTick;
+    private static int taskTick;
     private static double maxOfCenter;
-    // Add a new static variable for the height above the player
-    private static double heightAbovePlayer; // New variable
-
+    private static double heightAbovePlayer;
     private BukkitTask task;
+    private final ArrayList<Fireball> fireballs = new ArrayList<>();
 
     public WinEffectMeteors() {
         this.task = null;
@@ -31,7 +31,7 @@ public class WinEffectMeteors implements WinEffect, Cloneable {
         if (!loaded) {
             maxOfCenter = plugin.getWineffect().getDoubleOrDefault(path + ".maxOfCenter", 1);
             taskTick = plugin.getWineffect().getIntOrDefault(path + ".taskTick", 2);
-            heightAbovePlayer = plugin.getWineffect().getDoubleOrDefault(path + ".heightAbovePlayer", 10.0); // Default to 10 blocks
+            heightAbovePlayer = plugin.getWineffect().getDoubleOrDefault(path + ".heightAbovePlayer", 10.0);
             loaded = true;
         }
     }
@@ -39,18 +39,20 @@ public class WinEffectMeteors implements WinEffect, Cloneable {
     @Override
     public void start(Player p) {
         World world = p.getWorld();
-
         task = new BukkitRunnable() {
             public void run() {
                 if (p == null || !p.isOnline() || !world.getName().equals(p.getWorld().getName())) {
                     stop();
+                    Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
                 Location playerLoc = p.getLocation();
                 Location spawnLoc = playerLoc.clone().add(0, heightAbovePlayer, 0);
-
-                Fireball fb = p.getWorld().spawn(spawnLoc, Fireball.class); // Spawn in player's world
+                Fireball fb = world.spawn(spawnLoc, Fireball.class);
+                fb.setIsIncendiary(false); // Prevent fire spread
+                fb.setYield(0); // Prevent block damage
                 fb.setVelocity(new Vector(ThreadLocalRandom.current().nextDouble(-maxOfCenter, maxOfCenter), -1.5, ThreadLocalRandom.current().nextDouble(-maxOfCenter, maxOfCenter)));
+                fireballs.add(fb);
             }
         }.runTaskTimer(Main.get(), taskTick, taskTick);
     }
@@ -59,7 +61,15 @@ public class WinEffectMeteors implements WinEffect, Cloneable {
     public void stop() {
         if (task != null) {
             task.cancel();
+            task = null;
         }
+        // Remove all fireballs
+        for (Fireball fb : fireballs) {
+            if (fb != null && !fb.isDead()) {
+                fb.remove();
+            }
+        }
+        fireballs.clear();
     }
 
     @Override

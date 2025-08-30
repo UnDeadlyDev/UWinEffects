@@ -4,6 +4,7 @@ import com.cryptomorin.xseries.XMaterial;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
+import com.undeadlydev.UWinEffects.managers.CustomSound;
 import com.undeadlydev.UWinEffects.utils.Utils;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -20,7 +21,20 @@ public class WinEffectNotes implements WinEffect {
 
     private ArrayList<Item> items = new ArrayList<>();
     private BukkitTask task;
-    private Material[] discs = new Material[]{XMaterial.MUSIC_DISC_13.parseMaterial(), XMaterial.MUSIC_DISC_CAT.parseMaterial(), XMaterial.MUSIC_DISC_BLOCKS.parseMaterial(), XMaterial.MUSIC_DISC_CHIRP.parseMaterial(), XMaterial.MUSIC_DISC_FAR.parseMaterial(), XMaterial.MUSIC_DISC_MALL.parseMaterial(), XMaterial.MUSIC_DISC_MELLOHI.parseMaterial(), XMaterial.MUSIC_DISC_STAL.parseMaterial(), XMaterial.MUSIC_DISC_STRAD.parseMaterial(), XMaterial.MUSIC_DISC_WARD.parseMaterial(), XMaterial.MUSIC_DISC_11.parseMaterial(), XMaterial.MUSIC_DISC_WAIT.parseMaterial()};
+    private Material[] discs = new Material[]{
+            XMaterial.MUSIC_DISC_13.parseMaterial(),
+            XMaterial.MUSIC_DISC_CAT.parseMaterial(),
+            XMaterial.MUSIC_DISC_BLOCKS.parseMaterial(),
+            XMaterial.MUSIC_DISC_CHIRP.parseMaterial(),
+            XMaterial.MUSIC_DISC_FAR.parseMaterial(),
+            XMaterial.MUSIC_DISC_MALL.parseMaterial(),
+            XMaterial.MUSIC_DISC_MELLOHI.parseMaterial(),
+            XMaterial.MUSIC_DISC_STAL.parseMaterial(),
+            XMaterial.MUSIC_DISC_STRAD.parseMaterial(),
+            XMaterial.MUSIC_DISC_WARD.parseMaterial(),
+            XMaterial.MUSIC_DISC_11.parseMaterial(),
+            XMaterial.MUSIC_DISC_WAIT.parseMaterial()
+    };
 
     @Override
     public void start(Player p) {
@@ -31,15 +45,17 @@ public class WinEffectNotes implements WinEffect {
             public void run() {
                 if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
                     stop();
+                    Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
                 Item item = spawnDisc(p.getLocation(), random(-0.25, 0.25), random(-0.25, 0.25));
+                CustomSound.WINEFFECTS_NOTES.reproduce(p);
                 Utils.broadcastParticle(p.getLocation(), ThreadLocalRandom.current().nextInt(0, 24), 0, 0, 1, "NOTE", 5, 10);
                 items.add(item);
                 for (Item c : new ArrayList<>(items)) {
                     if (c.getTicksLived() > 30) {
                         c.remove();
-                        Utils.broadcastParticle(item.getLocation(), ThreadLocalRandom.current().nextInt(0, 24), 0, 0, 1, "NOTE", 5, 10);
+                        Utils.broadcastParticle(c.getLocation(), ThreadLocalRandom.current().nextInt(0, 24), 0, 0, 1, "NOTE", 5, 10);
                         items.remove(c);
                     }
                 }
@@ -49,9 +65,16 @@ public class WinEffectNotes implements WinEffect {
 
     @Override
     public void stop() {
+        // Remove all tracked items
+        for (Item item : items) {
+            if (item != null && !item.isDead()) {
+                item.remove();
+            }
+        }
         items.clear();
         if (task != null) {
             task.cancel();
+            task = null;
         }
     }
 
@@ -72,7 +95,6 @@ public class WinEffectNotes implements WinEffect {
         return item;
     }
 
-	@Override
-	public void loadCustoms(Main plugin, String path) {}
-
+    @Override
+    public void loadCustoms(Main plugin, String path) {}
 }
