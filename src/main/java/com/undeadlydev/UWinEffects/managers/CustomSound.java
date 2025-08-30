@@ -11,6 +11,8 @@ public enum CustomSound {
     WINEFFECTS_CHICKEN(null, 0.0f, 0.0f),
     WINEFFECTS_DAREDEVIL(null, 0.0f, 0.0f),
     WINEFFECTS_ICEWALKER(null, 0.0f, 0.0f),
+    WINEFFECTS_RAINBOWBEACON(null, 0.0f, 0.0f),
+    WINEFFECTS_STARSHOWER(null, 0.0f, 0.0f),
     NOBUY(null, 0.0f, 0.0f);
 
     private Sound sound;

@@ -347,7 +347,7 @@ wineffects:
         lore: |-
           §eDescription:
           &7Ride a Wither straight
-          &7 from the nether
+          &7from the nether
           §7
           <price>
           §7
@@ -359,4 +359,46 @@ wineffects:
     page: 1
     permission: uwineffects.wither
     autoGivePermission: uwineffect.autogive.wither
+    needPermToBuy: false
+  rainbow:
+    id: 16
+    type: rainbowbeacon
+    icon:
+      material: BEACON
+      meta:
+        display-name: §aRainbow Beacon
+        lore: |-
+          §eDescription:
+          §7
+          <price>
+          §7
+          <status>
+    name: Rainbow Beacon
+    price: 50000
+    isBuy: true
+    slot: 30
+    page: 1
+    permission: uwineffects.rainbowbeacon
+    autoGivePermission: uwineffect.autogive.rainbowbeacon
+    needPermToBuy: false
+  starshower:
+    id: 17
+    type: starshower
+    icon:
+      material: GOLD_NUGGET
+      meta:
+        display-name: §aStar Shower
+        lore: |-
+          §eDescription:
+          §7
+          <price>
+          §7
+          <status>
+    name: Star Shower
+    price: 50000
+    isBuy: true
+    slot: 31
+    page: 1
+    permission: uwineffects.starshower
+    autoGivePermission: uwineffect.autogive.starshower
     needPermToBuy: false

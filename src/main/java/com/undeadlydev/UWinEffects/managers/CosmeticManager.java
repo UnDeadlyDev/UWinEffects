@@ -130,6 +130,12 @@ public class CosmeticManager {
             case "wither":
                 we = new WinEffectWitherRider();
                 break;
+            case "rainbowbeacon":
+                we = new WinEffectRainbowBeacon();
+                break;
+            case "starshower":
+                we = new WinEffectStarShower();
+                break;
             default:
                 we = new WinEffectFireworks();
                 break;
