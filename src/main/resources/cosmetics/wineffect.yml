@@ -381,6 +381,9 @@ wineffects:
     permission: uwineffects.rainbowbeacon
     autoGivePermission: uwineffect.autogive.rainbowbeacon
     needPermToBuy: false
+    taskTick: 5
+    radius: 2.0
+    pillarHeight: 5
   starshower:
     id: 17
     type: starshower
@@ -402,3 +405,5 @@ wineffects:
     permission: uwineffects.starshower
     autoGivePermission: uwineffect.autogive.starshower
     needPermToBuy: false
+    taskTick: 4
+    radius: 3.0
