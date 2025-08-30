@@ -7,8 +7,9 @@ wineffects:
         display-name: §aFireworks
         lore: |-
           §eDescription:
-          §7Fireworks, the effect
-          §7for all ;D
+          §7Launch a spectacular display of colorful fireworks
+          §7that light up the sky, celebrating your victory
+          §7in a dazzling explosion of joy!
           §7
           <status>
     type: fireworks
@@ -28,8 +29,9 @@ wineffects:
         display-name: §aVulcano Wool
         lore: |-
           §eDescription:
-          §7Wool volcano, give it color
-          §7your life <3 w <3
+          §7Unleash a vibrant eruption of colorful wool
+          §7that rains down around you, painting the
+          §7battlefield with a burst of creativity!
           §7
           <status>
     type: vulcanwool
@@ -49,8 +51,9 @@ wineffects:
         display-name: §aFire Volcano
         lore: |-
           §eDescription:
-          §7Fire volcano, give it color
-          §7to your hot life :>
+          §7Ignite the arena with a fiery volcano of
+          §7blazing flames that cascade around you,
+          §7showcasing your scorching triumph!
           §7
           <status>
     type: vulcanfire
@@ -70,7 +73,9 @@ wineffects:
         display-name: §aIce Walker
         lore: |-
           §eDescription:
-          §7Ice appears as he walks.
+          §7Freeze the ground beneath your feet,
+          §7transforming the terrain into a shimmering
+          §7ice path as you stride in victory!
           §7
           <status>
     type: icewalker
@@ -90,7 +95,9 @@ wineffects:
         display-name: §aNotes
         lore: |-
           §eDescription:
-          §7Notes appear about you.
+          §7Surround yourself with a melody of
+          §7musical notes that dance in the air,
+          §7creating a harmonious victory tune!
           §7
           <status>
     type: notes
@@ -110,11 +117,13 @@ wineffects:
         display-name: §aChickens
         lore: |-
           §eDescription:
-          §7Chickens will show up around you.
+          §7Summon a flock of clucking chickens
+          §7that flutter around you, heralding
+          §7your victory with chaotic charm!
           §7
           <status>
     type: chickens
-    name: chickens
+    name: Chickens
     price: 5000
     isBuy: true
     slot: 15
@@ -130,11 +139,13 @@ wineffects:
         display-name: §aGuardians
         lore: |-
           §eDescription:
-          §7Guardians will honor you.
+          §7Command the respect of ancient wardens
+          §7that circle you, honoring your triumph
+          §7with their eerie, majestic presence!
           §7
           <status>
     type: guardian
-    name: guardian
+    name: Guardian
     price: 5000
     isBuy: true
     slot: 16
@@ -150,11 +161,13 @@ wineffects:
         display-name: §aDare Devil
         lore: |-
           §eDescription:
-          §7Horse spawn and you ride.
+          §7Ride a mighty steed that gallops
+          §7through the arena, showcasing your
+          §7fearless victory in style!
           §7
           <status>
     type: daredevil
-    name: daredevil
+    name: Dare Devil
     price: 5000
     isBuy: true
     slot: 19
@@ -171,8 +184,9 @@ wineffects:
         display-name: §aTwerk Apocalypse
         lore: |-
           §eDescription:
-          §7Confuse your enemies with
-          §7the hour of his victory.
+          §7Unleash a chaotic dance party with
+          §7twerking clones that confuse and dazzle
+          §7your foes in a victorious spectacle!
           §7
           <status>
     name: Twerk Apocalypse
@@ -192,7 +206,9 @@ wineffects:
         display-name: §aPig Land
         lore: |-
           §eDescription:
-          §7Summon a shower of pigs
+          §7Call forth a shower of pigs that
+          §7rain from the skies, turning your
+          §7victory into a whimsical stampede!
           §7
           <price>
           §7
@@ -219,7 +235,9 @@ wineffects:
         display-name: §aMeteors
         lore: |-
           §eDescription:
-          §7Summon a meteor shower on the map.
+          §7Summon a blazing meteor shower that
+          §7crashes around you, illuminating your
+          §7victory with cosmic fury!
           §7
           <price>
           §7
@@ -244,8 +262,9 @@ wineffects:
         display-name: §aAnvil Rain
         lore: |-
           §eDescription:
-          §7Appear anvils everywhere
-          §7at win.
+          §7Rain down heavy anvils from the skies,
+          §7crashing around you to proclaim your
+          §7unstoppable victory!
           §7
           <price>
           §7
@@ -269,11 +288,12 @@ wineffects:
     icon:
       material: BONE
       meta:
-        display-name: §aWolf Apocalips
+        display-name: §aWolf Apocalypse
         lore: |-
           §eDescription:
-          §7A pack of wolves that will
-          §7be your friends.
+          §7Summon a loyal pack of wolves that
+          §7howl and roam around you, guarding
+          §7your triumphant moment!
           §7
           <price>
           §7
@@ -296,9 +316,9 @@ wineffects:
         display-name: §aDestroy Island
         lore: |-
           §eDescription:
-          §7A TnT rain
-          §7came to destroy
-          §7everything in its path
+          §7Unleash a barrage of TNT and lightning,
+          §7devastating the terrain to mark your
+          §7explosive victory!
           §7
           <price>
           §7
@@ -323,8 +343,9 @@ wineffects:
         display-name: §aTitan
         lore: |-
           §eDescription:
-          §7Increase the size
-          §7of your skin
+          §7Transform into a towering titan,
+          §7looming over the battlefield with
+          §7a colossal presence of power!
           §7
           <price>
           §7
@@ -346,8 +367,9 @@ wineffects:
         display-name: §4Wither Rider
         lore: |-
           §eDescription:
-          &7Ride a Wither straight
-          &7from the nether
+          §7Ride a menacing Wither from the Nether,
+          §7commanding fear and awe as you
+          §7claim your dark victory!
           §7
           <price>
           §7
@@ -360,7 +382,7 @@ wineffects:
     permission: uwineffects.wither
     autoGivePermission: uwineffect.autogive.wither
     needPermToBuy: false
-    movementSpeed: 2.0
+    movementSpeed: 0.5
     skullYield: 2.0
   rainbowbeacon:
     id: 16
@@ -371,6 +393,9 @@ wineffects:
         display-name: §aRainbow Beacon
         lore: |-
           §eDescription:
+          §7Summon vibrant, rotating pillars of
+          §7rainbow-colored glass that shine with
+          §7your radiant victory!
           §7
           <price>
           §7
@@ -395,6 +420,9 @@ wineffects:
         display-name: §aStar Shower
         lore: |-
           §eDescription:
+          §7Call down a cascade of glowing stars
+          §7that spiral around you, illuminating
+          §7your triumph with cosmic splendor!
           §7
           <price>
           §7
