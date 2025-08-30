@@ -15,7 +15,7 @@ bukkit {
     version = project.version
     apiVersion = '1.13'
     author = 'UnDeadlyDev'
-    softDepend = ['PlaceholderAPI', 'Vault', 'Citizens']
+    softDepend = ['PlaceholderAPI', 'Vault']
 }
 
 repositories {
@@ -52,6 +52,10 @@ dependencies {
         exclude group: '*', module: '*'
     }
 
+    compileOnly "net.kyori:adventure-api:4.24.0"
+
+    compileOnly "net.kyori:adventure-platform-bukkit:4.4.1"
+
     // https://github.com/Bastian/bstats-metrics
     implementation 'org.bstats:bstats-bukkit:3.1.0'
 
@@ -62,7 +66,9 @@ dependencies {
     library 'com.github.cryptomorin:XSeries:13.3.3'
 
     // https://github.com/brettwooldridge/HikariCP
-    library'com.zaxxer:HikariCP:7.0.2'
+    library 'com.zaxxer:HikariCP:7.0.2'
+
+    implementation 'com.github.Eisi05:NpcApi-Paper:1.21.8'
 
     implementation 'com.github.datatags.MobChipLite:mobchip-bukkit:1.10.14'
 
@@ -72,12 +78,13 @@ shadowJar {
     archiveFileName = "${rootProject.name}-${version}.jar"
 
     def path = 'com.undeadlydev.UWinEffects.libraries'
-    relocate 'org.bstats', path +'.bstats'
-    relocate 'io.github.bananapuncher714.nbteditor', path + '.NBTEditor'
     minimize {
         exclude(dependency('com.github.datatags.MobChipLite:.*:.*'))
     }
-    relocate('me.gamercoder215.mobchip', path + '.mobchip')
+    relocate 'org.bstats', path +'.bstats'
+    relocate 'io.github.bananapuncher714.nbteditor', path + '.nbteditor'
+    relocate 'de.eisi05.npc.api', path + '.npcapi'
+    relocate 'me.gamercoder215.mobchip', path + '.mobchip'
 }
 
 java {

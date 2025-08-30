@@ -13,31 +13,32 @@ public class WinEffectTitan implements WinEffect {
 
     private BukkitTask task;
     private  Player player;
+    private static double titanscala;
+    private AttributeInstance scaleAttribute;
 
     @Override
     public void start(Player p) {
         World world = p.getWorld();
         player = p;
-        AttributeInstance scaleAttribute = player.getAttribute(XAttribute.SCALE.get());
+        scaleAttribute = player.getAttribute(XAttribute.SCALE.get());
         task = new BukkitRunnable() {
             public void run() {
                 if (p == null || !p.isOnline() || !world.getName().equals(p.getWorld().getName())) {
                     scaleAttribute.setBaseValue(1.0);
-                    stop();
                     Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
-                scaleAttribute.setBaseValue(35.0);
+                scaleAttribute.setBaseValue(titanscala);
             }
         }.runTaskTimer(Main.get(), 0, 10L);
     }
 
     @Override
     public void stop() {
-        AttributeInstance scaleAttribute = player.getAttribute(XAttribute.SCALE.get());
         if (task != null) {
             scaleAttribute.setBaseValue(1.0);
             task.cancel();
+            task = null;
         }
     }
 
@@ -47,5 +48,7 @@ public class WinEffectTitan implements WinEffect {
     }
 
     @Override
-    public void loadCustoms(Main plugin, String path) {}
+    public void loadCustoms(Main plugin, String path) {
+        titanscala = plugin.getWineffect().getDoubleOrDefault(path + ".titanscale", 35.0);
+    }
 }

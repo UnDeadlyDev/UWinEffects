@@ -29,7 +29,6 @@ public class WinEffectChicken implements WinEffect {
             @Override
             public void run() {
                 if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
-                    stop();
                     Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
@@ -50,7 +49,6 @@ public class WinEffectChicken implements WinEffect {
 
     @Override
     public void stop() {
-        // Remove all tracked chickens
         for (Chicken chicken : chickens) {
             if (chicken != null && !chicken.isDead()) {
                 chicken.remove();

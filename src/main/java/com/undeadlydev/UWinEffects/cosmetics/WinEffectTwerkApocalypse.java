@@ -2,53 +2,66 @@ package com.undeadlydev.UWinEffects.cosmetics;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
-import net.citizensnpcs.api.CitizensAPI;
-import net.citizensnpcs.api.npc.NPC;
-import net.citizensnpcs.trait.SkinTrait;
+
+import com.undeadlydev.UWinEffects.utils.ChatUtils;
+import de.eisi05.npc.api.objects.NPC;
+import de.eisi05.npc.api.objects.NpcOption;
+import de.eisi05.npc.api.objects.Skin;
+
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Location;
-import org.bukkit.entity.EntityType;
+import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Pose;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Consumer;
+
+import net.kyori.adventure.text.Component;
 
 public class WinEffectTwerkApocalypse implements WinEffect {
-
-    private final ArrayList<NPC> npcs1 = new ArrayList<>();
-    private final ArrayList<NPC> npcs2 = new ArrayList<>();
+    private final List<NPC> npcs = new ArrayList<>();
     private BukkitTask task;
 
     @Override
     public void start(Player p) {
-        for (int i = 0; i < 10; i++) {
-            Location randomLocation = p.getLocation().add(random(-10, 10), 0, random(-10, 10));
-            NPC npc = spawnNPC1(p, randomLocation);
-            npcs1.add(npc);
-        }
-        for (int i = 0; i < 10; i++) {
-            Location randomLocation = p.getLocation().add(random(-10, 10), 0, random(-10, 10));
-            NPC npc = spawnNPC2(p, randomLocation);
-            npcs2.add(npc);
+        World world = p.getWorld();
+        TextComponent textComponent = Component.text().content(p.getName() + " NPC").color(TextColor.color(0x0AE9FF)).build();
+        for (int i = 0; i < 20; i++) {
+            Location spawnLoc = getSafeSpawnLocation(p.getLocation(), -10, 10);
+            try {
+                spawnLoc.setY(spawnLoc.getY() + 1);
+                NPC npc = new NPC(spawnLoc, textComponent);
+                npc.setOption(NpcOption.SKIN, Skin.fromPlayer(p));
+                npc.setEnabled(true);
+                npc.showNpcToAllPlayers();
+                npc.save();
+                npcs.add(npc);
+            } catch (Exception e) {
+                Main.get().sendDebugMessage("§cFailed to create NPC #" + i + ": " + e.getMessage());
+            }
         }
         task = new BukkitRunnable() {
-            final String name = p.getWorld().getName();
             @Override
             public void run() {
-                if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
-                    stop();
+                if (p == null || !p.isOnline() || !world.getName().equals(p.getWorld().getName())) {
                     Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
-                if (!npcs1.isEmpty()) {
-                    for (NPC npc : npcs1) {
-                        Player npcPlayer = (Player) npc.getEntity();
-                        npcPlayer.setSneaking(!npcPlayer.isSneaking());
-                    }
-                    for (NPC npc1 : npcs2) {
-                        Player npcPlayer = (Player) npc1.getEntity();
-                        npcPlayer.setSneaking(!npcPlayer.isSneaking());
+                for (NPC npc : npcs) {
+                    try {
+                        Pose current = npc.getOption(NpcOption.POSE);
+                        npc.setOption(NpcOption.POSE, current == Pose.SNEAKING ? Pose.STANDING : Pose.SNEAKING);
+                        npc.reload();
+                    } catch (Exception e) {
+                        p.sendMessage("§cError updating NPC pose: " + e.getMessage());
                     }
                 }
             }
@@ -57,51 +70,55 @@ public class WinEffectTwerkApocalypse implements WinEffect {
 
     @Override
     public void stop() {
-        for (NPC npc : npcs1) {
-            npc.despawn();
-            npc.destroy();
-        }
-        for (NPC npc : npcs2) {
-            npc.despawn();
-            npc.destroy();
-        }
-        npcs1.clear();
-        npcs2.clear();
         if (task != null) {
             task.cancel();
+            task = null;
         }
+        for (NPC npc : new ArrayList<>(npcs)) {
+            try {
+                if (npc != null) {
+                    npc.delete();
+                }
+            } catch (Exception e) {
+                System.out.println("Error deleting NPC: " + e.getMessage());
+            }
+        }
+        npcs.clear();
+    }
+
+    private double random(double min, double max) {
+        return min + ThreadLocalRandom.current().nextDouble() * (max - min);
+    }
+
+    private Location getSafeSpawnLocation(Location base, double minOffset, double maxOffset) {
+        World world = base.getWorld();
+        if (world == null) return null;
+
+        for (int attempt = 0; attempt < 10; attempt++) { // Try up to 10 random positions
+            double x = base.getX() + random(minOffset, maxOffset);
+            double z = base.getZ() + random(minOffset, maxOffset);
+            int baseY = base.getBlockY();
+
+            // Scan Y from baseY + 10 down to baseY - 10 to find the highest solid block
+            for (int y = baseY + 10; y >= baseY - 10; y--) {
+                Location loc = new Location(world, x, y, z);
+                if (loc.getChunk().isLoaded() && isSafeLocation(loc)) {
+                    return loc;
+                }
+            }
+        }
+        return null; // No safe location found after attempts
+    }
+
+    private boolean isSafeLocation(Location loc) {
+        Block feet = loc.getBlock();
+        Block head = loc.clone().add(0, 1, 0).getBlock();
+        return !feet.isEmpty() && !feet.isLiquid() && head.isEmpty() && !head.isLiquid();
     }
 
     @Override
     public WinEffect clone() {
         return new WinEffectTwerkApocalypse();
-    }
-
-    private NPC spawnNPC1(Player p, Location randomLocation) {
-        NPC npc = CitizensAPI.getNPCRegistry().createNPC(EntityType.PLAYER, p.getPlayer().getName());
-        SkinTrait skinTrait = npc.getOrAddTrait(SkinTrait.class);
-        skinTrait.setSkinPersistent(p);
-        npc.setName(p.getName());
-        npc.setSneaking(true);
-        npc.setFlyable(true);
-        npc.setProtected(true);
-        npc.spawn(randomLocation);
-        return npc;
-    }
-
-    private NPC spawnNPC2(Player p, Location randomLocation) {
-        NPC npc = CitizensAPI.getNPCRegistry().createNPC(EntityType.PLAYER, p.getPlayer().getName());
-        SkinTrait skinTrait = npc.getOrAddTrait(SkinTrait.class);
-        skinTrait.setSkinPersistent(p);
-        npc.setName(p.getName());
-        npc.setFlyable(true);
-        npc.setProtected(true);
-        npc.spawn(randomLocation);
-        return npc;
-    }
-
-    protected double random(double min, double max) {
-        return min + ThreadLocalRandom.current().nextDouble() * (max - min);
     }
 
     @Override

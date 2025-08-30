@@ -23,7 +23,6 @@ public class WinEffectFireworks implements WinEffect, Cloneable {
             @Override
             public void run() {
                 if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
-                    stop();
                     Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
@@ -36,6 +35,7 @@ public class WinEffectFireworks implements WinEffect, Cloneable {
     public void stop() {
         if (task != null) {
             task.cancel();
+            task = null;
         }
     }
 

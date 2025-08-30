@@ -33,7 +33,6 @@ public class WinEffectDareDevil implements WinEffect {
             public void run() {
                 if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
                     Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
-                    stop();
                 }
             }
         }.runTaskTimer(Main.get(), 0, 20);

@@ -17,7 +17,6 @@ import java.util.Map;
 
 public class WinEffectDestroyIsland implements WinEffect, Cloneable {
 
-    private static boolean loaded = false;
     private static int spawnLaterTick, amountTNT, perFuseAmount;
     private BukkitTask task;
     private final ArrayList<TNTPrimed> tnts = new ArrayList<>();
@@ -25,12 +24,9 @@ public class WinEffectDestroyIsland implements WinEffect, Cloneable {
 
     @Override
     public void loadCustoms(Main plugin, String path) {
-        if (!loaded) {
-            spawnLaterTick = plugin.getWineffect().getIntOrDefault(path + ".spawnLaterTick", 20);
-            amountTNT = plugin.getWineffect().getIntOrDefault(path + ".amountTNT", 4);
-            perFuseAmount = plugin.getWineffect().getIntOrDefault(path + ".perFuseAmount", 15);
-            loaded = true;
-        }
+        spawnLaterTick = plugin.getWineffect().getIntOrDefault(path + ".spawnLaterTick", 20);
+        amountTNT = plugin.getWineffect().getIntOrDefault(path + ".amountTNT", 4);
+        perFuseAmount = plugin.getWineffect().getIntOrDefault(path + ".perFuseAmount", 15);
     }
 
     @Override
@@ -50,7 +46,6 @@ public class WinEffectDestroyIsland implements WinEffect, Cloneable {
 
     private void explode(Location loc) {
         loc.getWorld().strikeLightning(loc);
-        // Track blocks in a small radius around the explosion point
         for (int x = -2; x <= 2; x++) {
             for (int y = -2; y <= 2; y++) {
                 for (int z = -2; z <= 2; z++) {
@@ -77,14 +72,12 @@ public class WinEffectDestroyIsland implements WinEffect, Cloneable {
             task.cancel();
             task = null;
         }
-        // Remove all TNT entities
         for (TNTPrimed tnt : tnts) {
             if (tnt != null && !tnt.isDead()) {
                 tnt.remove();
             }
         }
         tnts.clear();
-        // Revert affected blocks
         for (Map.Entry<Location, BlockData> entry : originalBlocks.entrySet()) {
             Location loc = entry.getKey();
             BlockData originalData = entry.getValue();

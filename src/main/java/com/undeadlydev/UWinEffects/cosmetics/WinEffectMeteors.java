@@ -15,7 +15,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class WinEffectMeteors implements WinEffect, Cloneable {
 
-    private static boolean loaded = false;
     private static int taskTick;
     private static double maxOfCenter;
     private static double heightAbovePlayer;
@@ -28,12 +27,9 @@ public class WinEffectMeteors implements WinEffect, Cloneable {
 
     @Override
     public void loadCustoms(Main plugin, String path) {
-        if (!loaded) {
-            maxOfCenter = plugin.getWineffect().getDoubleOrDefault(path + ".maxOfCenter", 1);
-            taskTick = plugin.getWineffect().getIntOrDefault(path + ".taskTick", 2);
-            heightAbovePlayer = plugin.getWineffect().getDoubleOrDefault(path + ".heightAbovePlayer", 10.0);
-            loaded = true;
-        }
+        maxOfCenter = plugin.getWineffect().getDoubleOrDefault(path + ".maxOfCenter", 1);
+        taskTick = plugin.getWineffect().getIntOrDefault(path + ".taskTick", 2);
+        heightAbovePlayer = plugin.getWineffect().getDoubleOrDefault(path + ".heightAbovePlayer", 10.0);
     }
 
     @Override
@@ -42,7 +38,6 @@ public class WinEffectMeteors implements WinEffect, Cloneable {
         task = new BukkitRunnable() {
             public void run() {
                 if (p == null || !p.isOnline() || !world.getName().equals(p.getWorld().getName())) {
-                    stop();
                     Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }

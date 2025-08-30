@@ -29,7 +29,6 @@ public class WinEffectIceWalker implements WinEffect, Cloneable {
             @Override
             public void run() {
                 if (!p.isOnline() || !p.getWorld().getName().equals(world.getName())) {
-                    stop();
                     Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
@@ -49,8 +48,8 @@ public class WinEffectIceWalker implements WinEffect, Cloneable {
     public void stop() {
         if (task != null) {
             task.cancel();
+            task = null;
         }
-        // Revert all changed blocks to their original state
         for (Map.Entry<Location, BlockData> entry : originalBlocks.entrySet()) {
             Block block = entry.getKey().getBlock();
             block.setBlockData(entry.getValue());

@@ -358,6 +358,7 @@ wineffects:
     permission: uwineffects.titan
     autoGivePermission: uwineffect.autogive.titan
     needPermToBuy: false
+    titanscale: 35.0
   wither:
     id: 15
     type: wither

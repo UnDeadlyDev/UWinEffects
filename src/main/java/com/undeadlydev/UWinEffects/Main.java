@@ -13,6 +13,8 @@ import com.undeadlydev.UWinEffects.managers.*;
 import com.undeadlydev.UWinEffects.menus.UltraInventoryMenu;
 import com.undeadlydev.UWinEffects.superclass.SpigotUpdater;
 import com.undeadlydev.UWinEffects.utils.ChatUtils;
+import de.eisi05.npc.api.NpcApi;
+import de.eisi05.npc.api.objects.NpcConfig;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
@@ -132,6 +134,7 @@ public class Main extends JavaPlugin {
         collision = new CollisionHelper();
         gson = new Gson();
         db = new MySQLDatabase(this);
+        NpcApi.createInstance(this);
         sendLogMessage("&7-----------------------------------");
         sendLogMessage(" ");
         sendLogMessage("&fServer: &c" + getServer().getName() + " " + getServer().getBukkitVersion());
@@ -152,6 +155,7 @@ public class Main extends JavaPlugin {
                 getDb().savePlayerSync(tags);
         }
         db.close();
+        NpcApi.disable();
         sendLogMessage("&7-----------------------------------");
         sendLogMessage(" ");
         sendLogMessage("&fSuccessfully Plugin &cDisable!");

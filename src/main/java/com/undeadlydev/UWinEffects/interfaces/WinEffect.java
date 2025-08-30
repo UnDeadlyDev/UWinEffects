@@ -3,6 +3,8 @@ package com.undeadlydev.UWinEffects.interfaces;
 import com.undeadlydev.UWinEffects.Main;
 import org.bukkit.entity.Player;
 
+import java.io.IOException;
+
 public interface WinEffect {
 
     void start(Player p);

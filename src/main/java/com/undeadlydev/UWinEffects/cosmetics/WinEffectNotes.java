@@ -44,7 +44,6 @@ public class WinEffectNotes implements WinEffect {
             @Override
             public void run() {
                 if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
-                    stop();
                     Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
@@ -65,17 +64,17 @@ public class WinEffectNotes implements WinEffect {
 
     @Override
     public void stop() {
-        // Remove all tracked items
+        if (task != null) {
+            task.cancel();
+            task = null;
+        }
         for (Item item : items) {
             if (item != null && !item.isDead()) {
                 item.remove();
             }
         }
         items.clear();
-        if (task != null) {
-            task.cancel();
-            task = null;
-        }
+
     }
 
     @Override

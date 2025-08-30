@@ -1,5 +1,6 @@
 package com.undeadlydev.UWinEffects.cosmetics;
 
+import com.cryptomorin.xseries.XMaterial;
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
 import org.bukkit.Location;
@@ -18,7 +19,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class WinEffectAnvilLand implements WinEffect, Cloneable {
 
-    private static boolean loaded = false;
     private static int maxOfPlayerNegative, maxOfPlayerPositive, firstUp, maxRandomUp, taskTick;
     private BukkitTask task;
     private final ArrayList<FallingBlock> fallingBlocks = new ArrayList<>();
@@ -30,14 +30,11 @@ public class WinEffectAnvilLand implements WinEffect, Cloneable {
 
     @Override
     public void loadCustoms(Main plugin, String path) {
-        if (!loaded) {
-            maxOfPlayerNegative = plugin.getWineffect().getIntOrDefault(path + ".maxOfPlayerNegative", 5);
-            maxOfPlayerPositive = plugin.getWineffect().getIntOrDefault(path + ".maxOfPlayerPositive", 5);
-            firstUp = plugin.getWineffect().getIntOrDefault(path + ".firstUp", 10);
-            maxRandomUp = plugin.getWineffect().getIntOrDefault(path + ".maxRandomUp", 20);
-            taskTick = plugin.getWineffect().getIntOrDefault(path + ".taskTick", 5);
-            loaded = true;
-        }
+        maxOfPlayerNegative = plugin.getWineffect().getIntOrDefault(path + ".maxOfPlayerNegative", 5);
+        maxOfPlayerPositive = plugin.getWineffect().getIntOrDefault(path + ".maxOfPlayerPositive", 5);
+        firstUp = plugin.getWineffect().getIntOrDefault(path + ".firstUp", 10);
+        maxRandomUp = plugin.getWineffect().getIntOrDefault(path + ".maxRandomUp", 20);
+        taskTick = plugin.getWineffect().getIntOrDefault(path + ".taskTick", 5);
     }
 
     @Override
@@ -54,14 +51,13 @@ public class WinEffectAnvilLand implements WinEffect, Cloneable {
                 loc.add(ThreadLocalRandom.current().nextDouble(-maxOfPlayerNegative, maxOfPlayerPositive),
                         ThreadLocalRandom.current().nextDouble(firstUp, maxRandomUp),
                         ThreadLocalRandom.current().nextDouble(-maxOfPlayerNegative, maxOfPlayerPositive));
-                // Store the block state at the landing location
                 Location landingLoc = loc.clone();
-                landingLoc.setY(world.getHighestBlockYAt(loc) + 1); // Approximate landing spot
+                landingLoc.setY(world.getHighestBlockYAt(loc) + 1);
                 if (!originalBlocks.containsKey(landingLoc)) {
                     originalBlocks.put(landingLoc, world.getBlockAt(landingLoc).getBlockData());
                 }
-                FallingBlock fb = world.spawnFallingBlock(loc, Material.ANVIL, blockData);
-                fb.setDropItem(false); // Prevent item drops
+                FallingBlock fb = world.spawnFallingBlock(loc, XMaterial.ANVIL.get(), blockData);
+                fb.setDropItem(false);
                 fallingBlocks.add(fb);
             }
         }.runTaskTimer(Main.get(), taskTick, taskTick);
@@ -73,18 +69,16 @@ public class WinEffectAnvilLand implements WinEffect, Cloneable {
             task.cancel();
             task = null;
         }
-        // Remove all falling blocks
         for (FallingBlock fb : fallingBlocks) {
             if (fb != null && !fb.isDead()) {
                 fb.remove();
             }
         }
         fallingBlocks.clear();
-        // Revert any placed anvil blocks
         for (Map.Entry<Location, BlockData> entry : originalBlocks.entrySet()) {
             Location loc = entry.getKey();
             BlockData originalData = entry.getValue();
-            if (loc.getBlock().getType() == Material.ANVIL) {
+            if (loc.getBlock().getType() == XMaterial.ANVIL.get()) {
                 loc.getBlock().setBlockData(originalData);
             }
         }

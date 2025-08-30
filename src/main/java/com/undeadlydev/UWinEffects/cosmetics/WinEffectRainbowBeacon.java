@@ -20,7 +20,6 @@ import java.util.Map;
 
 public class WinEffectRainbowBeacon implements WinEffect, Cloneable {
 
-    private static boolean loaded = false;
     private static int taskTick;
     private static double radius;
     private static int pillarHeight;
@@ -40,12 +39,9 @@ public class WinEffectRainbowBeacon implements WinEffect, Cloneable {
 
     @Override
     public void loadCustoms(Main plugin, String path) {
-        if (!loaded) {
-            taskTick = plugin.getWineffect().getIntOrDefault(path + ".taskTick", 5);
-            radius = plugin.getWineffect().getDoubleOrDefault(path + ".radius", 2.0);
-            pillarHeight = plugin.getWineffect().getIntOrDefault(path + ".pillarHeight", 5);
-            loaded = true;
-        }
+        taskTick = plugin.getWineffect().getIntOrDefault(path + ".taskTick", 5);
+        radius = plugin.getWineffect().getDoubleOrDefault(path + ".radius", 2.0);
+        pillarHeight = plugin.getWineffect().getIntOrDefault(path + ".pillarHeight", 5);
     }
 
     @Override
@@ -73,8 +69,6 @@ public class WinEffectRainbowBeacon implements WinEffect, Cloneable {
                 );
                 pillarLoc.setY(playerLoc.getY());
                 long currentTime = System.currentTimeMillis();
-
-                // Place colored glass pillar
                 for (int y = 0; y < pillarHeight; y++) {
                     Location blockLoc = pillarLoc.clone().add(0, y, 0);
                     Block block = blockLoc.getBlock();
@@ -84,17 +78,8 @@ public class WinEffectRainbowBeacon implements WinEffect, Cloneable {
                     }
                     block.setType(colors[colorIndex]);
                 }
-
-                // Play sound with fallback
-                try {
-                    world.playSound(playerLoc, CustomSound.WINEFFECTS_RAINBOWBEACON.getSound(), 1.0f, 1.0f);
-                } catch (Exception e) {
-                    world.playSound(playerLoc, "block.beacon.activate", 1.0f, 1.0f);
-                }
-                // Particle effect
+                world.playSound(playerLoc, CustomSound.WINEFFECTS_RAINBOWBEACON.getSound(), CustomSound.WINEFFECTS_RAINBOWBEACON.getVolume(), CustomSound.WINEFFECTS_RAINBOWBEACON.getPitch());
                 Utils.broadcastParticle(pillarLoc.clone().add(0, pillarHeight + 0.5, 0), 0, 0, 0, 1, "HAPPY_VILLAGER", 20, 10);
-
-                // Remove old pillars (older than 20 ticks ~ 1000ms)
                 for (Location loc : new ArrayList<>(blockChangeTimes.keySet())) {
                     if (currentTime - blockChangeTimes.get(loc) > 1000) {
                         Block block = loc.getBlock();
@@ -111,17 +96,15 @@ public class WinEffectRainbowBeacon implements WinEffect, Cloneable {
 
     @Override
     public void stop() {
-        // Cancel task first to prevent new block changes
         if (task != null) {
             task.cancel();
             task = null;
         }
-        // Revert all modified blocks
         for (Map.Entry<Location, BlockData> entry : new ArrayList<>(originalBlocks.entrySet())) {
             Location loc = entry.getKey();
             BlockData originalData = entry.getValue();
             Block block = loc.getBlock();
-            if (block.getType() != originalData.getMaterial()) { // Only revert if block was changed
+            if (block.getType() != originalData.getMaterial()) {
                 block.setBlockData(originalData);
             }
         }

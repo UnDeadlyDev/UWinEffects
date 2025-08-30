@@ -17,7 +17,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class WinEffectStarShower implements WinEffect, Cloneable {
 
-    private static boolean loaded = false;
     private static int taskTick;
     private static double radius;
     private final ArrayList<ShulkerBullet> stars = new ArrayList<>();
@@ -25,11 +24,8 @@ public class WinEffectStarShower implements WinEffect, Cloneable {
 
     @Override
     public void loadCustoms(Main plugin, String path) {
-        if (!loaded) {
-            taskTick = plugin.getWineffect().getIntOrDefault(path + ".taskTick", 4);
-            radius = plugin.getWineffect().getDoubleOrDefault(path + ".radius", 3.0);
-            loaded = true;
-        }
+        taskTick = plugin.getWineffect().getIntOrDefault(path + ".taskTick", 4);
+        radius = plugin.getWineffect().getDoubleOrDefault(path + ".radius", 3.0);
     }
 
     @Override
