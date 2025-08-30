@@ -40,7 +40,7 @@ public class WinEffectWitherRider implements WinEffect, Cloneable {
     @Override
     public void loadCustoms(Main plugin, String path) {
         if (!loaded) {
-            movementSpeed = plugin.getWineffect().getDoubleOrDefault(path + ".movementSpeed", 2.0);
+            movementSpeed = plugin.getWineffect().getDoubleOrDefault(path + ".movementSpeed", 0.5);
             skullYield = (float) plugin.getWineffect().getDoubleOrDefault(path + ".skullYield", 2.0);
             loaded = true;
         }
@@ -57,11 +57,7 @@ public class WinEffectWitherRider implements WinEffect, Cloneable {
         wither.setCustomName(p.getName() + "'s Wither");
         wither.setCustomNameVisible(true);
         wither.setGravity(false);
-        try {
-            Main.get().getCollisionAPI().setCollidable(wither, false);
-        } catch (Exception e) {
-            wither.setCollidable(false);
-        }
+        Main.get().getCollisionAPI().setCollidable(wither, false);
 
         brain = BukkitBrain.getBrain(wither);
         brain.getBody().setHurtTime(20);
@@ -126,7 +122,7 @@ public class WinEffectWitherRider implements WinEffect, Cloneable {
         Vector direction = p.getLocation().getDirection().normalize();
         WitherSkull skull = wither.getWorld().spawn(skullLoc, WitherSkull.class);
         skull.setDirection(direction);
-        skull.setVelocity(direction.multiply(1.5));
+        skull.setVelocity(direction.multiply(1.0));
         skull.setYield(skullYield);
         skull.setShooter(wither);
     }

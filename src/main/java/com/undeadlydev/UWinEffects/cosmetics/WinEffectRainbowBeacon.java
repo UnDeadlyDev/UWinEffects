@@ -1,5 +1,6 @@
 package com.undeadlydev.UWinEffects.cosmetics;
 
+import com.cryptomorin.xseries.XMaterial;
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
 import com.undeadlydev.UWinEffects.managers.CustomSound;
@@ -16,7 +17,6 @@ import org.bukkit.scheduler.BukkitTask;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class WinEffectRainbowBeacon implements WinEffect, Cloneable {
 
@@ -25,16 +25,17 @@ public class WinEffectRainbowBeacon implements WinEffect, Cloneable {
     private static double radius;
     private static int pillarHeight;
     private final Map<Location, BlockData> originalBlocks = new HashMap<>();
+    private final Map<Location, Long> blockChangeTimes = new HashMap<>();
     private BukkitTask task;
 
     private final Material[] colors = new Material[]{
-            Material.RED_STAINED_GLASS,
-            Material.ORANGE_STAINED_GLASS,
-            Material.YELLOW_STAINED_GLASS,
-            Material.LIME_STAINED_GLASS,
-            Material.CYAN_STAINED_GLASS,
-            Material.BLUE_STAINED_GLASS,
-            Material.PURPLE_STAINED_GLASS
+            XMaterial.RED_STAINED_GLASS.parseMaterial(),
+            XMaterial.ORANGE_STAINED_GLASS.parseMaterial(),
+            XMaterial.YELLOW_STAINED_GLASS.parseMaterial(),
+            XMaterial.LIME_STAINED_GLASS.parseMaterial(),
+            XMaterial.CYAN_STAINED_GLASS.parseMaterial(),
+            XMaterial.BLUE_STAINED_GLASS.parseMaterial(),
+            XMaterial.PURPLE_STAINED_GLASS.parseMaterial()
     };
 
     @Override
@@ -59,41 +60,49 @@ public class WinEffectRainbowBeacon implements WinEffect, Cloneable {
             @Override
             public void run() {
                 if (p == null || !p.isOnline() || !worldName.equals(p.getWorld().getName())) {
-                    stop();
+                    Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
                 angle += angleIncrement;
-                colorIndex = (colorIndex + 1) % colors.length; // Cycle through colors
+                colorIndex = (colorIndex + 1) % colors.length;
                 Location playerLoc = p.getLocation().clone();
-
-                // Calculate pillar position
                 Location pillarLoc = playerLoc.clone().add(
                         radius * Math.cos(angle),
                         0,
                         radius * Math.sin(angle)
                 );
-                pillarLoc.setY(world.getHighestBlockYAt(pillarLoc) + 1);
+                pillarLoc.setY(playerLoc.getY());
+                long currentTime = System.currentTimeMillis();
 
-                // Store original blocks and place colored glass pillar
+                // Place colored glass pillar
                 for (int y = 0; y < pillarHeight; y++) {
                     Location blockLoc = pillarLoc.clone().add(0, y, 0);
                     Block block = blockLoc.getBlock();
                     if (!originalBlocks.containsKey(blockLoc)) {
                         originalBlocks.put(blockLoc, block.getBlockData());
+                        blockChangeTimes.put(blockLoc, currentTime);
                     }
                     block.setType(colors[colorIndex]);
                 }
 
-                // Play sound and particle effect
-                world.playSound(playerLoc, CustomSound.WINEFFECTS_RAINBOWBEACON.getSound(), 1.0f, 1.0f);
-                Utils.broadcastParticle(pillarLoc.clone().add(0, pillarHeight, 0), 0, 0, 0, 1, "VILLAGER_HAPPY", 10, 10);
+                // Play sound with fallback
+                try {
+                    world.playSound(playerLoc, CustomSound.WINEFFECTS_RAINBOWBEACON.getSound(), 1.0f, 1.0f);
+                } catch (Exception e) {
+                    world.playSound(playerLoc, "block.beacon.activate", 1.0f, 1.0f);
+                }
+                // Particle effect
+                Utils.broadcastParticle(pillarLoc.clone().add(0, pillarHeight + 0.5, 0), 0, 0, 0, 1, "HAPPY_VILLAGER", 20, 10);
 
-                // Remove old pillars (older than 20 ticks)
-                for (Location loc : new ArrayList<>(originalBlocks.keySet())) {
-                    Block block = loc.getBlock();
-                    if (block.getType() != Material.AIR && System.currentTimeMillis() - block.getData() > 1000) { // Approx 20 ticks
-                        block.setBlockData(originalBlocks.get(loc));
-                        originalBlocks.remove(loc);
+                // Remove old pillars (older than 20 ticks ~ 1000ms)
+                for (Location loc : new ArrayList<>(blockChangeTimes.keySet())) {
+                    if (currentTime - blockChangeTimes.get(loc) > 1000) {
+                        Block block = loc.getBlock();
+                        if (originalBlocks.containsKey(loc)) {
+                            block.setBlockData(originalBlocks.get(loc));
+                            originalBlocks.remove(loc);
+                            blockChangeTimes.remove(loc);
+                        }
                     }
                 }
             }
@@ -102,17 +111,22 @@ public class WinEffectRainbowBeacon implements WinEffect, Cloneable {
 
     @Override
     public void stop() {
-        // Revert all modified blocks
-        for (Map.Entry<Location, BlockData> entry : originalBlocks.entrySet()) {
-            Location loc = entry.getKey();
-            BlockData originalData = entry.getValue();
-            loc.getBlock().setBlockData(originalData);
-        }
-        originalBlocks.clear();
+        // Cancel task first to prevent new block changes
         if (task != null) {
             task.cancel();
             task = null;
         }
+        // Revert all modified blocks
+        for (Map.Entry<Location, BlockData> entry : new ArrayList<>(originalBlocks.entrySet())) {
+            Location loc = entry.getKey();
+            BlockData originalData = entry.getValue();
+            Block block = loc.getBlock();
+            if (block.getType() != originalData.getMaterial()) { // Only revert if block was changed
+                block.setBlockData(originalData);
+            }
+        }
+        originalBlocks.clear();
+        blockChangeTimes.clear();
     }
 
     @Override

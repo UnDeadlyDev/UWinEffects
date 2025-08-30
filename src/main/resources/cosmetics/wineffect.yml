@@ -360,7 +360,9 @@ wineffects:
     permission: uwineffects.wither
     autoGivePermission: uwineffect.autogive.wither
     needPermToBuy: false
-  rainbow:
+    movementSpeed: 2.0
+    skullYield: 2.0
+  rainbowbeacon:
     id: 16
     type: rainbowbeacon
     icon:

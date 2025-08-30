@@ -43,7 +43,7 @@ public class WinEffectStarShower implements WinEffect, Cloneable {
             @Override
             public void run() {
                 if (p == null || !p.isOnline() || !worldName.equals(p.getWorld().getName())) {
-                    stop();
+                    Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
                 angle += angleIncrement;
@@ -66,14 +66,14 @@ public class WinEffectStarShower implements WinEffect, Cloneable {
 
                 // Play sound and particle effect
                 world.playSound(playerLoc, CustomSound.WINEFFECTS_STARSHOWER.getSound(), 1.0f, 1.5f); // High-pitched sparkle sound
-                Utils.broadcastParticle(playerLoc, 0, 0, 0, 1, "ENCHANTMENT_TABLE", 10, 10);
+                Utils.broadcastParticle(playerLoc, 0, 0, 0, 1, "ENCHANTED_HIT", 10, 10);
 
                 // Cleanup stars older than 40 ticks
                 for (ShulkerBullet s : new ArrayList<>(stars)) {
                     if (s.getTicksLived() > 40) {
                         s.remove();
                         stars.remove(s);
-                        Utils.broadcastParticle(s.getLocation(), 0, 0, 0, 1, "FIREWORKS_SPARK", 5, 10);
+                        Utils.broadcastParticle(s.getLocation(), 0, 0, 0, 1, "FIREWORK", 5, 10);
                     }
                 }
             }
@@ -86,7 +86,7 @@ public class WinEffectStarShower implements WinEffect, Cloneable {
         for (ShulkerBullet star : stars) {
             if (star != null && !star.isDead()) {
                 star.remove();
-                Utils.broadcastParticle(star.getLocation(), 0, 0, 0, 1, "FIREWORKS_SPARK", 5, 10);
+                Utils.broadcastParticle(star.getLocation(), 0, 0, 0, 1, "FIREWORK", 5, 10);
             }
         }
         stars.clear();
