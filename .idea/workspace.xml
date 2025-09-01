@@ -5,69 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="861592ad-767f-456e-bf68-164ad3a4a414" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/CustomNPC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/Reflections.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/version/ServerVersion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/version/VersionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v1_20_R1/src/main/java/com/undeadlydev/UWinEffects/v1_20_R1/CustomNPCImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v1_21_R5/src/main/java/com/undeadlydev/UWinEffects/v1_21_R5/CustomNPCImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/core/UWinEffetcs.core.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/npc/UWinEffetcs.npc.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/npc/UWinEffetcs.npc.test.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectTwerkApocalypse.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectTwerkApocalypse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/undeadlydev/UWinEffects/interfaces/CustomNPC.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/undeadlydev/UWinEffects/interfaces/CustomNPC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/CustomNPC.class.uniqueId56" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/CustomNPC.class.uniqueId56" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/VersionManager.class.uniqueId9" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/VersionManager.class.uniqueId9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTwerkApocalypse$1.class.uniqueId26" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTwerkApocalypse$1.class.uniqueId26" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTwerkApocalypse.class.uniqueId34" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTwerkApocalypse.class.uniqueId34" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectTwerkApocalypse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectTwerkApocalypse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/.gradle/caches/paperweight/taskCache/mappedServerJar.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/.gradle/caches/paperweight/taskCache/reobfMappings.tiny" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/NpcApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/enums/ClickActionType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/enums/SkinParts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/events/NpcInteractEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/interfaces/NpcClickAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/listeners/ChangeWorldListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/listeners/ConnectionListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/listeners/NpcInteractListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/manager/NpcManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/manager/TeamManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/objects/NPC.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/objects/NpcConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/objects/NpcHolder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/objects/NpcOption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/objects/Skin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/objects/Tasks.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/utils/CustomNameTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/utils/ItemSerializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/utils/ObjectSaver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/utils/PacketReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/utils/Reflections.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/utils/TriFunction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/utils/Var.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/wrapper/enums/ChatFormat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/wrapper/packets/AnimatePacket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/wrapper/packets/SetEntityDataPacket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/npc/src/main/java/com/undeadlydev/UWinEffects/npc/api/wrapper/packets/SetPlayerTeamPacket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/CustomNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/CustomNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_20_R1/build/classes/java/main/com/undeadlydev/UWinEffects/v1_20_R1/CustomNPCImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/v1_20_R1/build/classes/java/main/com/undeadlydev/UWinEffects/v1_20_R1/CustomNPCImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_20_R1/build/libs/v1_20_R1-1.0.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/v1_20_R1/build/libs/v1_20_R1-1.0.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_20_R1/build/tmp/compileJava/compileTransaction/stash-dir/CustomNPCImpl.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/v1_20_R1/build/tmp/compileJava/compileTransaction/stash-dir/CustomNPCImpl.class.uniqueId0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_20_R1/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/v1_20_R1/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_20_R1/src/main/java/com/undeadlydev/UWinEffects/v1_20_R1/CustomNPCImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/v1_20_R1/src/main/java/com/undeadlydev/UWinEffects/v1_20_R1/CustomNPCImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_21_R5/build/classes/java/main/com/undeadlydev/UWinEffects/v1_21_R5/CustomNPCImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/v1_21_R5/build/classes/java/main/com/undeadlydev/UWinEffects/v1_21_R5/CustomNPCImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_21_R5/build/libs/v1_21_R5-1.0.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/v1_21_R5/build/libs/v1_21_R5-1.0.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_21_R5/build/tmp/compileJava/compileTransaction/stash-dir/CustomNPCImpl.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_21_R5/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/v1_21_R5/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_21_R5/src/main/java/com/undeadlydev/UWinEffects/v1_21_R5/CustomNPCImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/v1_21_R5/src/main/java/com/undeadlydev/UWinEffects/v1_21_R5/CustomNPCImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,11 +109,14 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.undeadlydev.UWinEffects.v1_21_R5" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Conta\IdeaProjects\UWinEffects\core\src\main\java\com\undeadlydev\UWinEffects\utils\version" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.UWinEffects [clean]">
     <configuration name="UWinEffects [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -172,8 +139,31 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="UWinEffects [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UWinEffects [clean]" />
         <item itemvalue="Gradle.UWinEffects [build]" />
       </list>
     </recent_temporary>

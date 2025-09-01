@@ -4,6 +4,8 @@ import com.undeadlydev.UWinEffects.interfaces.CustomNPC;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
+import java.util.List;
+
 
 public class CustomNPCImpl implements CustomNPC {
     @Override
@@ -27,7 +29,7 @@ public class CustomNPCImpl implements CustomNPC {
     }
 
     @Override
-    public void destroy() {
+    public void destroy(List<CustomNPC> npcs) {
 
     }
 

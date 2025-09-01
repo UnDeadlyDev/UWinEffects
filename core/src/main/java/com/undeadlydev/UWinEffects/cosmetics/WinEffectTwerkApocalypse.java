@@ -68,7 +68,7 @@ public class WinEffectTwerkApocalypse implements WinEffect, Cloneable {
         for (CustomNPC npc : new ArrayList<>(npcs)) {
             try {
                 if (npc != null) {
-                    npc.destroy();
+                    npc.destroy(npcs);
                 }
             } catch (Exception e) {
                 System.out.println("Error deleting NPC: " + e.getMessage());
