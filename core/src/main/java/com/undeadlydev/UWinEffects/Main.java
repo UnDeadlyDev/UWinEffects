@@ -7,14 +7,17 @@ import com.undeadlydev.UWinEffects.cmds.UwinEffectsCMD;
 import com.undeadlydev.UWinEffects.cmds.winEffectsCMD;
 import com.undeadlydev.UWinEffects.data.MySQLDatabase;
 import com.undeadlydev.UWinEffects.interfaces.Collision;
+import com.undeadlydev.UWinEffects.interfaces.CustomNPC;
 import com.undeadlydev.UWinEffects.interfaces.Database;
 import com.undeadlydev.UWinEffects.listeners.MenuListener;
 import com.undeadlydev.UWinEffects.listeners.PlayerListener;
 import com.undeadlydev.UWinEffects.managers.*;
 import com.undeadlydev.UWinEffects.menus.UltraInventoryMenu;
-import com.undeadlydev.UWinEffects.npc.api.NpcApi;
 import com.undeadlydev.UWinEffects.superclass.SpigotUpdater;
 import com.undeadlydev.UWinEffects.utils.ChatUtils;
+
+import com.undeadlydev.UWinEffects.utils.version.ServerVersion;
+import com.undeadlydev.UWinEffects.utils.version.VersionManager;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
@@ -38,6 +41,8 @@ public class Main extends JavaPlugin {
     private ShopManager shm;
     private int pluginId, resourceId;
     private Collision collision;
+    private VersionManager versionManager;
+    private CustomNPC customNPC;
 
     public static Main get() {
         return instance;
@@ -95,6 +100,14 @@ public class Main extends JavaPlugin {
         return collision;
     }
 
+    public CustomNPC getCustomNPC() {
+        return customNPC;
+    }
+
+    public VersionManager getVersionManager() {
+        return versionManager;
+    }
+
     @Override
     public void onEnable() {
         instance = this;
@@ -132,9 +145,15 @@ public class Main extends JavaPlugin {
             cs.setPitch((float)getSounds().getDouble(path + ".pitch"));
         }
         collision = new CollisionHelper();
+        try {
+            ServerVersion detected = ServerVersion.detect();
+            versionManager = new VersionManager(detected, detected.isNmsSupported());
+            customNPC = versionManager.getModule();
+        } catch (ReflectiveOperationException e) {
+            throw new RuntimeException("Failed to initialize VersionManager", e);
+        }
         gson = new Gson();
         db = new MySQLDatabase(this);
-        NpcApi.createInstance(this);
         sendLogMessage("&7-----------------------------------");
         sendLogMessage(" ");
         sendLogMessage("&fServer: &c" + getServer().getName() + " " + getServer().getBukkitVersion());
@@ -155,7 +174,6 @@ public class Main extends JavaPlugin {
                 getDb().savePlayerSync(tags);
         }
         db.close();
-        NpcApi.disable();
         sendLogMessage("&7-----------------------------------");
         sendLogMessage(" ");
         sendLogMessage("&fSuccessfully Plugin &cDisable!");

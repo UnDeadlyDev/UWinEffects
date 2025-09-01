@@ -1,19 +1,13 @@
 package com.undeadlydev.UWinEffects.cosmetics;
 
 import com.undeadlydev.UWinEffects.Main;
+import com.undeadlydev.UWinEffects.interfaces.CustomNPC;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
 
-import com.undeadlydev.UWinEffects.npc.api.objects.NPC;
-import com.undeadlydev.UWinEffects.npc.api.objects.NpcOption;
-import com.undeadlydev.UWinEffects.npc.api.objects.Skin;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
-import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Pose;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -22,26 +16,27 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class WinEffectTwerkApocalypse implements WinEffect, Cloneable {
-    private final List<NPC> npcs = new ArrayList<>();
+    private final List<CustomNPC> npcs = new ArrayList<>();
     private BukkitTask task;
 
     @Override
     public void start(Player p) {
+        Main plugin = Main.get();
         World world = p.getWorld();
-        TextComponent textComponent = Component.text().content(p.getName() + " NPC").color(TextColor.color(0xFFF832)).build();
+
         for (int i = 0; i < 20; i++) {
             Location spawnLoc = getSafeSpawnLocation(p.getLocation(), -10, 10);
             try {
                 spawnLoc.setY(spawnLoc.getY() + 1);
-                NPC npc = new NPC(spawnLoc, textComponent);
-                npc.setOption(NpcOption.SKIN, Skin.fromPlayer(p));
-                npc.setEnabled(true);
-                npc.showNpcToAllPlayers();
+                CustomNPC npc = plugin.getCustomNPC().createNPC(spawnLoc, "TwerkNPC_" + i, p);
+                npc.spawn(p); // Spawn for the player
                 npcs.add(npc);
+                Main.get().sendDebugMessage("§aSpawned NPC #" + i + " at " + spawnLoc);
             } catch (Exception e) {
                 Main.get().sendDebugMessage("§cFailed to create NPC #" + i + ": " + e.getMessage());
             }
         }
+
         task = new BukkitRunnable() {
             @Override
             public void run() {
@@ -49,14 +44,13 @@ public class WinEffectTwerkApocalypse implements WinEffect, Cloneable {
                     Main.get().getCos().winEffectsTask.remove(p.getUniqueId()).stop();
                     return;
                 }
-                for (NPC npc : npcs) {
+                for (CustomNPC npc : npcs) {
                     try {
                         double randomChance = ThreadLocalRandom.current().nextDouble();
                         if (randomChance < 0.5) { // 50% chance to toggle pose
-                            Pose current = npc.getOption(NpcOption.POSE);
-                            npc.setOption(NpcOption.POSE, current == Pose.SNEAKING ? Pose.STANDING : Pose.SNEAKING);
+                            boolean currentSneaking = npc.isSneaking();
+                            npc.setPose(!currentSneaking);
                         }
-                        npc.reload();
                     } catch (Exception e) {
                         p.sendMessage("§cError updating NPC pose: " + e.getMessage());
                     }
@@ -71,10 +65,10 @@ public class WinEffectTwerkApocalypse implements WinEffect, Cloneable {
             task.cancel();
             task = null;
         }
-        for (NPC npc : new ArrayList<>(npcs)) {
+        for (CustomNPC npc : new ArrayList<>(npcs)) {
             try {
                 if (npc != null) {
-                    npc.delete();
+                    npc.destroy();
                 }
             } catch (Exception e) {
                 System.out.println("Error deleting NPC: " + e.getMessage());

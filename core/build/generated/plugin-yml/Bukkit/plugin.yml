@@ -1,0 +1,11 @@
+name: UWinEffects
+version: 1.0.4
+main: com.undeadlydev.UWinEffects.Main
+author: UnDeadlyDev
+libraries:
+  - com.github.cryptomorin:XSeries:13.3.3
+  - com.zaxxer:HikariCP:7.0.2
+api-version: "1.13"
+softdepend:
+  - PlaceholderAPI
+  - Vault
