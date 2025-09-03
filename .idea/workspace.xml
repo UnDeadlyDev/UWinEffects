@@ -4,34 +4,108 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="861592ad-767f-456e-bf68-164ad3a4a414" name="Changes" comment="">
+    <list default="true" id="f12824a4-757d-4c5f-8391-2986cf28d31e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules/UWinEffects.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/expanded/expanded.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/expanded/expanded.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/core/UWinEffects.core.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/v1_20_R1/UWinEffects.v1_20_R1.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/v1_20_R1/UWinEffects.v1_20_R1.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/v1_21_R5/UWinEffects.v1_21_R5.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/v1_21_R5/UWinEffects.v1_21_R5.test.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectTwerkApocalypse.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectTwerkApocalypse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/undeadlydev/UWinEffects/interfaces/CustomNPC.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/undeadlydev/UWinEffects/interfaces/CustomNPC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/CustomNPC.class.uniqueId56" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/CustomNPC.class.uniqueId56" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/VersionManager.class.uniqueId9" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/VersionManager.class.uniqueId9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTwerkApocalypse$1.class.uniqueId26" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTwerkApocalypse$1.class.uniqueId26" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTwerkApocalypse.class.uniqueId34" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTwerkApocalypse.class.uniqueId34" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectTwerkApocalypse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectTwerkApocalypse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/CustomNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/CustomNPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_20_R1/build/classes/java/main/com/undeadlydev/UWinEffects/v1_20_R1/CustomNPCImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/v1_20_R1/build/classes/java/main/com/undeadlydev/UWinEffects/v1_20_R1/CustomNPCImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_20_R1/build/libs/v1_20_R1-1.0.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/v1_20_R1/build/libs/v1_20_R1-1.0.4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_20_R1/build/tmp/compileJava/compileTransaction/stash-dir/CustomNPCImpl.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/v1_20_R1/build/tmp/compileJava/compileTransaction/stash-dir/CustomNPCImpl.class.uniqueId0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_20_R1/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/v1_20_R1/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_20_R1/src/main/java/com/undeadlydev/UWinEffects/v1_20_R1/CustomNPCImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/v1_20_R1/src/main/java/com/undeadlydev/UWinEffects/v1_20_R1/CustomNPCImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_21_R5/build/classes/java/main/com/undeadlydev/UWinEffects/v1_21_R5/CustomNPCImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/v1_21_R5/build/classes/java/main/com/undeadlydev/UWinEffects/v1_21_R5/CustomNPCImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_21_R5/build/libs/v1_21_R5-1.0.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/v1_21_R5/build/libs/v1_21_R5-1.0.4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_21_R5/build/tmp/compileJava/compileTransaction/stash-dir/CustomNPCImpl.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_21_R5/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/v1_21_R5/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1_21_R5/src/main/java/com/undeadlydev/UWinEffects/v1_21_R5/CustomNPCImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/v1_21_R5/src/main/java/com/undeadlydev/UWinEffects/v1_21_R5/CustomNPCImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/addons/economy/VaultAddon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/addons/placeholders/PlaceholderAPIAddon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/calls/CallBackAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cmds/UwinEffectsCMD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cmds/winEffectsCMD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/UWinEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectAnvilLand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectChicken.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectDareDevil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectDestroyIsland.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectFireworks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectIceWalker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectMeteors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectNotes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectPigLand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectRainbowBeacon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectStarShower.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectTitan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectTwerkApocalypse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanFire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanWool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectWardens.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectWitherRider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectWolfs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/data/DBPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/data/MySQLDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/enums/Permission.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/events/PlayerLoadEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/Collision.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/CustomNPC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/Database.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/EconomyAddon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/PlaceholderAddon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/Purchasable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/interfaces/WinEffect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/inventories/actions/InventoryAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/inventories/selectors/WinEffectsSelectorMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/listeners/MenuListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/listeners/PlayerListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/managers/AddonManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/managers/CollisionHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/managers/CommandManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/managers/CosmeticManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/managers/CustomSound.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/managers/FileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/managers/SetupManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/managers/ShopManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/menus/UltraInventoryMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/placeholders/Placeholders.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/superclass/Cosmetic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/superclass/SpigotUpdater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/superclass/UltraInventory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/ChatUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/HexUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/ItemBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/ItemUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/Reflections.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/Utils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/version/ServerVersion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/undeadlydev/UWinEffects/utils/version/VersionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/resources/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/resources/cosmetics/wineffect.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/resources/lang.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/resources/menus.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/resources/sounds.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_20_R1/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_20_R1/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_20_R1/src/main/java/com/undeadlydev/UWinEffects/v1_20_R1/CustomNPCImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_21_R5/.gradle/caches/paperweight/taskCache/mappedServerJar.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_21_R5/.gradle/caches/paperweight/taskCache/reobfMappings.tiny" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_21_R5/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_21_R5/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1_21_R5/src/main/java/com/undeadlydev/UWinEffects/v1_21_R5/CustomNPCImpl.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,13 +148,6 @@
       </state>
     </system>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -88,35 +155,28 @@
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="324atLraLWUdiafeYYAMaJpyvEH" />
+  <component name="ProjectId" id="32AAkxZNJH9shXZfyYxTml1SyV3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Download Sources.executor": "Run",
     "Gradle.UWinEffects [build].executor": "Run",
+    "Gradle.UWinEffects [clean].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Conta/IdeaProjects/UWinEffects",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "last_opened_file_path": "C:/Users/Conta/IdeaProjects/UWinEffects"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.undeadlydev.UWinEffects.v1_21_R5" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Conta\IdeaProjects\UWinEffects\core\src\main\java\com\undeadlydev\UWinEffects\utils\version" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Gradle.UWinEffects [clean]">
+  <component name="RunManager" selected="Gradle.UWinEffects [build]">
     <configuration name="UWinEffects [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -163,18 +223,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.UWinEffects [clean]" />
         <item itemvalue="Gradle.UWinEffects [build]" />
+        <item itemvalue="Gradle.UWinEffects [clean]" />
       </list>
     </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="861592ad-767f-456e-bf68-164ad3a4a414" name="Changes" comment="" />
-      <created>1756682512118</created>
+      <changelist id="f12824a4-757d-4c5f-8391-2986cf28d31e" name="Changes" comment="" />
+      <created>1756853150197</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1756682512118</updated>
+      <updated>1756853150197</updated>
     </task>
     <servers />
   </component>

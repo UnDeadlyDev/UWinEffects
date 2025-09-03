@@ -1,0 +1,440 @@
+wineffects:
+  fireworks:
+    id: 0
+    icon:
+      material: FIREWORK_ROCKET
+      meta:
+        display-name: §aFireworks
+        lore: |-
+          §eDescription:
+          §7Launch a spectacular display of colorful fireworks
+          §7that light up the sky, celebrating your victory
+          §7in a dazzling explosion of joy!
+          §7
+          <status>
+    type: fireworks
+    name: Fireworks
+    price: 100
+    isBuy: true
+    slot: 10
+    page: 1
+    permission: uwineffects.fireworks
+    autoGivePermission: uwineffect.autogive.fireworks
+    needPermToBuy: false
+  vulcanwool:
+    id: 1
+    icon:
+      material: RED_WOOL
+      meta:
+        display-name: §aVulcano Wool
+        lore: |-
+          §eDescription:
+          §7Unleash a vibrant eruption of colorful wool
+          §7that rains down around you, painting the
+          §7battlefield with a burst of creativity!
+          §7
+          <status>
+    type: vulcanwool
+    name: Vulcan Wool
+    price: 5000
+    isBuy: true
+    slot: 11
+    page: 1
+    permission: uwineffects.vulcanwool
+    autoGivePermission: uwineffect.autogive.vulcanwool
+    needPermToBuy: false
+  vulcanfire:
+    id: 2
+    icon:
+      material: FIREWORK_STAR
+      meta:
+        display-name: §aFire Volcano
+        lore: |-
+          §eDescription:
+          §7Ignite the arena with a fiery volcano of
+          §7blazing flames that cascade around you,
+          §7showcasing your scorching triumph!
+          §7
+          <status>
+    type: vulcanfire
+    name: Vulcan Fire
+    price: 5000
+    isBuy: true
+    slot: 12
+    page: 1
+    permission: uwineffects.vulcanfire
+    autoGivePermission: uwineffect.autogive.vulcanfire
+    needPermToBuy: false
+  icewalker:
+    id: 3
+    icon:
+      material: ICE
+      meta:
+        display-name: §aIce Walker
+        lore: |-
+          §eDescription:
+          §7Freeze the ground beneath your feet,
+          §7transforming the terrain into a shimmering
+          §7ice path as you stride in victory!
+          §7
+          <status>
+    type: icewalker
+    name: Ice Walker
+    price: 5000
+    isBuy: true
+    slot: 13
+    page: 1
+    permission: uwineffects.icewalker
+    autoGivePermission: uwineffect.autogive.icewalker
+    needPermToBuy: false
+  notes:
+    id: 4
+    icon:
+      material: MUSIC_DISC_CAT
+      meta:
+        display-name: §aNotes
+        lore: |-
+          §eDescription:
+          §7Surround yourself with a melody of
+          §7musical notes that dance in the air,
+          §7creating a harmonious victory tune!
+          §7
+          <status>
+    type: notes
+    name: Notes
+    price: 5000
+    isBuy: true
+    slot: 14
+    page: 1
+    permission: uwineffects.notes
+    autoGivePermission: uwineffect.autogive.notes
+    needPermToBuy: false
+  chickens:
+    id: 5
+    icon:
+      material: EGG
+      meta:
+        display-name: §aChickens
+        lore: |-
+          §eDescription:
+          §7Summon a flock of clucking chickens
+          §7that flutter around you, heralding
+          §7your victory with chaotic charm!
+          §7
+          <status>
+    type: chickens
+    name: Chickens
+    price: 5000
+    isBuy: true
+    slot: 15
+    page: 1
+    permission: uwineffects.chickens
+    autoGivePermission: uwineffect.autogive.chickens
+    needPermToBuy: false
+  guardian:
+    id: 6
+    icon:
+      material: SCULK_SHRIEKER
+      meta:
+        display-name: §aGuardians
+        lore: |-
+          §eDescription:
+          §7Command the respect of ancient wardens
+          §7that circle you, honoring your triumph
+          §7with their eerie, majestic presence!
+          §7
+          <status>
+    type: guardian
+    name: Guardian
+    price: 5000
+    isBuy: true
+    slot: 16
+    page: 1
+    permission: uwineffects.guardian
+    autoGivePermission: uwineffect.autogive.guardian
+    needPermToBuy: false
+  daredevil:
+    id: 7
+    icon:
+      material: SADDLE
+      meta:
+        display-name: §aDare Devil
+        lore: |-
+          §eDescription:
+          §7Ride a mighty steed that gallops
+          §7through the arena, showcasing your
+          §7fearless victory in style!
+          §7
+          <status>
+    type: daredevil
+    name: Dare Devil
+    price: 5000
+    isBuy: true
+    slot: 19
+    page: 1
+    permission: uwineffects.daredevil
+    autoGivePermission: uwineffect.autogive.daredevil
+    needPermToBuy: false
+  twerk:
+    id: 8
+    type: twerk
+    icon:
+      material: DIAMOND_BOOTS
+      meta:
+        display-name: §aTwerk Apocalypse
+        lore: |-
+          §eDescription:
+          §7Unleash a chaotic dance party with
+          §7twerking clones that confuse and dazzle
+          §7your foes in a victorious spectacle!
+          §7
+          <status>
+    name: Twerk Apocalypse
+    price: 50000
+    isBuy: true
+    slot: 20
+    page: 1
+    permission: uwineffects.twerk
+    autoGivePermission: uwineffect.autogive.twerk
+    needPermToBuy: true
+  pigland:
+    id: 9
+    type: pigland
+    icon:
+      material: PORKCHOP
+      meta:
+        display-name: §aPig Land
+        lore: |-
+          §eDescription:
+          §7Call forth a shower of pigs that
+          §7rain from the skies, turning your
+          §7victory into a whimsical stampede!
+          §7
+          <price>
+          §7
+          <status>
+    name: Pig Land
+    price: 5000
+    isBuy: true
+    slot: 21
+    page: 1
+    permission: uwineffects.pigland
+    autoGivePermission: uwineffect.autogive.pigland
+    needPermToBuy: true
+    maxOfPlayerNegative: 5
+    maxOfPlayerPositive: 5
+    firstUp: 10
+    maxRandomUp: 20
+    taskTick: 5
+  meteors:
+    id: 10
+    type: meteors
+    icon:
+      material: FIRE_CHARGE
+      meta:
+        display-name: §aMeteors
+        lore: |-
+          §eDescription:
+          §7Summon a blazing meteor shower that
+          §7crashes around you, illuminating your
+          §7victory with cosmic fury!
+          §7
+          <price>
+          §7
+          <status>
+    name: Meteors
+    price: 5000
+    isBuy: true
+    slot: 22
+    page: 1
+    permission: uwineffects.meteors
+    autoGivePermission: uwineffect.autogive.meteors
+    needPermToBuy: true
+    maxOfCenter: 1.0
+    heightAbovePlayer: 10
+    taskTick: 2
+  anvilland:
+    id: 11
+    type: anvilland
+    icon:
+      material: ANVIL
+      meta:
+        display-name: §aAnvil Rain
+        lore: |-
+          §eDescription:
+          §7Rain down heavy anvils from the skies,
+          §7crashing around you to proclaim your
+          §7unstoppable victory!
+          §7
+          <price>
+          §7
+          <status>
+    name: AnvilLand
+    price: 5000
+    isBuy: true
+    slot: 23
+    page: 1
+    maxOfPlayerNegative: 5
+    maxOfPlayerPositive: 5
+    firstUp: 10
+    maxRandomUp: 20
+    permission: uwineffects.anvilland
+    autoGivePermission: uwineffect.autogive.anvilland
+    needPermToBuy: true
+    taskTick: 5
+  wolfs:
+    id: 12
+    type: wolfs
+    icon:
+      material: BONE
+      meta:
+        display-name: §aWolf Apocalypse
+        lore: |-
+          §eDescription:
+          §7Summon a loyal pack of wolves that
+          §7howl and roam around you, guarding
+          §7your triumphant moment!
+          §7
+          <price>
+          §7
+          <status>
+    name: Wolfs
+    price: 5000
+    isBuy: true
+    slot: 24
+    page: 1
+    taskTick: 5
+    permission: uwineffects.wolfs
+    autoGivePermission: uwineffect.autogive.wolfs
+    needPermToBuy: false
+  destroyisland:
+    id: 13
+    type: destroyisland
+    icon:
+      material: TNT
+      meta:
+        display-name: §aDestroy Island
+        lore: |-
+          §eDescription:
+          §7Unleash a barrage of TNT and lightning,
+          §7devastating the terrain to mark your
+          §7explosive victory!
+          §7
+          <price>
+          §7
+          <status>
+    name: DestroyIsland
+    price: 5000
+    isBuy: true
+    slot: 25
+    page: 1
+    permission: uwineffects.destroyisland
+    autoGivePermission: uwineffect.autogive.destroyisland
+    needPermToBuy: false
+    spawnLaterTick: 20
+    amountTNT: 4
+    perFuseAmount: 15
+  titan:
+    id: 14
+    type: titan
+    icon:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjU1YTU2ZmJmYmY4MTYzMDU3OTk5MDc5NmEzMWRkZDRjODgwNWJkY2NlYjAxODM3ZWUwMGMyNDU4NTkzNDM3NiJ9fX0=
+      meta:
+        display-name: §aTitan
+        lore: |-
+          §eDescription:
+          §7Transform into a towering titan,
+          §7looming over the battlefield with
+          §7a colossal presence of power!
+          §7
+          <price>
+          §7
+          <status>
+    name: Titan
+    price: 50000
+    isBuy: true
+    slot: 28
+    page: 1
+    permission: uwineffects.titan
+    autoGivePermission: uwineffect.autogive.titan
+    needPermToBuy: false
+    titanscale: 35.0
+  wither:
+    id: 15
+    type: wither
+    icon:
+      material: NETHER_STAR
+      meta:
+        display-name: §4Wither Rider
+        lore: |-
+          §eDescription:
+          §7Ride a menacing Wither from the Nether,
+          §7commanding fear and awe as you
+          §7claim your dark victory!
+          §7
+          <price>
+          §7
+          <status>
+    name: Wither
+    price: 50000
+    isBuy: true
+    slot: 29
+    page: 1
+    permission: uwineffects.wither
+    autoGivePermission: uwineffect.autogive.wither
+    needPermToBuy: false
+    movementSpeed: 0.5
+    skullYield: 2.0
+  rainbowbeacon:
+    id: 16
+    type: rainbowbeacon
+    icon:
+      material: BEACON
+      meta:
+        display-name: §aRainbow Beacon
+        lore: |-
+          §eDescription:
+          §7Summon vibrant, rotating pillars of
+          §7rainbow-colored glass that shine with
+          §7your radiant victory!
+          §7
+          <price>
+          §7
+          <status>
+    name: Rainbow Beacon
+    price: 50000
+    isBuy: true
+    slot: 30
+    page: 1
+    permission: uwineffects.rainbowbeacon
+    autoGivePermission: uwineffect.autogive.rainbowbeacon
+    needPermToBuy: false
+    taskTick: 5
+    radius: 2.0
+    pillarHeight: 5
+  starshower:
+    id: 17
+    type: starshower
+    icon:
+      material: GOLD_NUGGET
+      meta:
+        display-name: §aStar Shower
+        lore: |-
+          §eDescription:
+          §7Call down a cascade of glowing stars
+          §7that spiral around you, illuminating
+          §7your triumph with cosmic splendor!
+          §7
+          <price>
+          §7
+          <status>
+    name: Star Shower
+    price: 50000
+    isBuy: true
+    slot: 31
+    page: 1
+    permission: uwineffects.starshower
+    autoGivePermission: uwineffect.autogive.starshower
+    needPermToBuy: false
+    taskTick: 4
+    radius: 3.0

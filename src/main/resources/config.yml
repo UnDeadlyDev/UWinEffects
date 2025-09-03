@@ -1,0 +1,17 @@
+mysql:
+  enabled: false
+  host: 127.0.0.1
+  port: 3306
+  database: UnDeadlyDev
+  username: bby
+  password: Plugin
+
+update-check: true
+debugMode: false
+redPanelInLocked: true
+progressBarAmount: 10
+
+addons:
+  PlaceholderAPI: true
+  Vault: false
+

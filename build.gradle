@@ -1,196 +1,141 @@
-import org.apache.tools.ant.filters.ReplaceTokens
-
-allprojects {
-    apply plugin: 'java-library'
-    apply plugin: 'eclipse'
-    apply plugin: 'idea'
-    apply plugin: 'maven-publish'
-
-    eclipse.classpath.downloadJavadoc = true
-    eclipse.classpath.downloadSources = true
-    idea.module.downloadJavadoc = true
-    idea.module.downloadSources = true
-
-    group = 'com.undeadlydev.UWinEffects'
-    version = '1.0.4'
-
-    tasks.withType(JavaCompile) {
-        options.encoding = 'UTF-8'
-        options.compilerArgs << '-Xlint:unchecked' << '-Xlint:deprecation'
-    }
-
-    java {
-        toolchain {
-            // minimum Java version to compile all subprojects
-            languageVersion = JavaLanguageVersion.of(21)
-        }
-    }
-
-    configurations {
-        shaded
-        compile.extendsFrom shaded
-    }
-
-    def gitVersionProvider = providers.exec {
-        commandLine 'git', 'rev-parse', '--short', 'HEAD'
-    }
-
-    processResources {
-        inputs.property('version', project.version)
-
-        filter ReplaceTokens, tokens: [
-                'VERSION' : project.version,
-                'GIT-HASH': gitVersionProvider.standardOutput.asText.get().trim()
-        ]
-    }
-
-    afterEvaluate {
-        jar {
-            dependsOn configurations.shaded
-            from configurations.shaded.collect {
-                it.isDirectory() ?
-                        it :
-                        zipTree(it)
-            }
-        }
-    }
+plugins {
+    id 'java'
+    // https://github.com/GradleUp/shadow
+    id 'com.gradleup.shadow' version '9.1.0'
+    // https://github.com/Minecrell/plugin-yml
+    id 'net.minecrell.plugin-yml.bukkit' version '0.6.0'
 }
 
-defaultTasks 'build'
+group 'com.undeadlydev'
+version '1.0.4'
 
-tasks {
-    compileJava {
-        subprojects.forEach {
-            if (it.name == 'core') {
-                dependsOn "core:jar"
-            } else {
-                dependsOn("${it.path}:assemble")
-            }
-        }
+bukkit {
+    name = 'UWinEffects'
+    main = 'com.undeadlydev.UWinEffects.Main'
+    version = project.version
+    apiVersion = '1.13'
+    author = 'UnDeadlyDev'
+    softDepend = ['PlaceholderAPI', 'Vault', 'Citizens']
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    // SPIGOT
+    maven { url 'https://hub.spigotmc.org/nexus/content/groups/public/' }
+    // VAULT
+    maven { url 'https://jitpack.io' }
+    // PLACEHOLDERSAPI
+    maven { url 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
+    //NBTEditor
+    maven { url 'https://repo.codemc.org/repository/maven-public/' }
+
+    maven { url 'https://repo.fancyinnovations.com/releases'}
+    // CITIZENS
+    maven {
+        name = 'citizens-repo'
+        url = 'https://maven.citizensnpcs.co/repo'
     }
 }
 
 dependencies {
-    subprojects.each { p ->
-        if (p.name == 'core') {
-            shaded(project(path: ':core', configuration: 'shadow'))
-            return;
-        }
-        shaded(p) {
-            transitive false
-        }
+    // https://hub.spigotmc.org/stash/projects/SPIGOT/repos/spigot/browse
+    compileOnly 'org.spigotmc:spigot-api:1.21.8-R0.1-SNAPSHOT'
+
+    // https://github.com/PlaceholderAPI/PlaceholderAPI
+    compileOnly 'me.clip:placeholderapi:2.11.6'
+
+    // https://github.com/MilkBowl/VaultAPI
+    compileOnly('net.milkbowl.vault:VaultAPI:1.7') {
+        exclude group: 'org.bukkit'
+    }
+
+    compileOnly('net.citizensnpcs:citizens-main:2.0.35-SNAPSHOT') {
+        exclude group: '*', module: '*'
+    }
+
+    // https://github.com/Bastian/bstats-metrics
+    implementation 'org.bstats:bstats-bukkit:3.1.0'
+
+    // https://github.com/BananaPuncher714/NBTEditor
+    implementation 'io.github.bananapuncher714:nbteditor:7.19.10'
+
+    implementation 'com.github.datatags.MobChipLite:mobchip-bukkit:1.10.14'
+
+    // https://github.com/CryptoMorin/XSeries
+    library 'com.github.cryptomorin:XSeries:13.3.3'
+
+    // https://github.com/brettwooldridge/HikariCP
+    library 'com.zaxxer:HikariCP:7.0.2'
+}
+
+shadowJar {
+    archiveFileName = "${rootProject.name}-${version}.jar"
+
+    def path = 'com.undeadlydev.UWinEffects.libraries'
+    minimize {
+        exclude(dependency('com.github.datatags.MobChipLite:.*:.*'))
+    }
+    relocate 'org.bstats', path +'.bstats'
+    relocate 'io.github.bananapuncher714.nbteditor', path + '.nbteditor'
+    relocate 'me.gamercoder215.mobchip', path + '.mobchip'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
-subprojects { subproj ->
-    repositories {
-        mavenLocal()
-
-        mavenCentral()
-        // Instead of real maven central we use the maven mirror Paper uses, to ensure all the dependencies we want will
-        // also be available to the library loader.
-        maven { url = 'https://maven-central.storage-download.googleapis.com/maven2' }
-
-        // AnvilGUI, Treasury
-        maven { url = 'https://repo.codemc.io/repository/maven-snapshots' }
-        // Lib's Disguises
-        maven { url = 'https://repo.md-5.net/content/groups/public' }
-        // WorldEdit
-        maven { url = 'https://repo.aikar.co/nexus/content/groups/aikar' }
-        // BungeeCord
-        maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
-        // PlaceholderAPI
-        maven { url = 'https://repo.extendedclip.com/content/repositories/placeholderapi' }
-        // PlayerPoints
-        maven { url = 'https://repo.rosewooddev.io/repository/public' }
-        // SpigotMC
-        maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots' }
-        // DiscordSRV
-        maven { url = 'https://nexus.scarsz.me/content/groups/public' }
-        // Towny
-        maven { url = 'https://repo.glaremasters.me/repository/towny' }
-        // PlayerAuctions
-        maven { url = 'https://repo.olziedev.com' }
-        // WorldGuard
-        maven { url = 'https://maven.enginehub.org/repo' }
-        // Vault, PEconomy, MobChipLite, FoliaLib
-        maven { url = 'https://jitpack.io' }
-        // Paper API
-        maven { url = 'https://repo.papermc.io/repository/maven-public' }
-        // Mojang Authlib
-        maven { url = 'https://libraries.minecraft.net' }
-        maven { url = 'https://repo.codemc.io/repository/maven-snapshots/' }
-        maven {
-            name = "papermc"
-            url = uri("https://repo.papermc.io/repository/maven-public/")
-        }
-    }
-
-    def version = 17
-    if (subproj.hasProperty('javaVersion')) {
-        version = subproj.property('javaVersion')
-    }
-    subproj.tasks.withType(JavaCompile).configureEach {
-        javaCompiler = javaToolchains.compilerFor {
-            languageVersion = JavaLanguageVersion.of(version)
-        }
-    }
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-Xlint:unchecked' << '-Xlint:deprecation'
 }
 
-boolean isDependencyInstalled(String version) {
-    def path = "${System.getProperty("user.home")}/.m2/repository/" +
-            "org/spigotmc/spigot/${version}/spigot-${version}.jar"
-    return file(path).exists()
-}
+tasks.register('validateLibraryLoaderDeps') {
+    doLast {
+        def repoUrl = "https://maven-central.storage-download.googleapis.com/maven2"
+        def configToCheck = configurations.library
 
-def getAllDependencies() {
-    def deps = [] as Set
-    subprojects.findAll(it -> it.hasProperty("remapMcVersion")).each { proj ->
-        deps << new Tuple2(proj.property("remapMcVersion") + "-R0.1-SNAPSHOT", proj.property("javaVersion"))
-    }
-    return deps
-}
-
-gradle.projectsEvaluated {
-    def sourceDeps = getAllDependencies()
-
-    def buildtoolsJar = new File("${projectDir}/build/BuildTools.jar")
-    def btDownload = tasks.register('getBuildTools') {
-        group = "build setup"
-        description = "Download BuildTools for building dependencies"
-        onlyIf { !buildtoolsJar.exists() }
-        doLast {
-            buildtoolsJar.parentFile.mkdirs()
-            new URL('https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar')
-                    .withInputStream { i -> buildtoolsJar.withOutputStream { it << i } }
+        def externalDeps = configToCheck.allDependencies.findAll {
+            it instanceof ExternalModuleDependency && it.version
         }
-    }
 
-    def prepareDeps = tasks.register("prepareDependencies") {
-        group = "build setup"
-        description = "Install any missing Spigot versions required for building"
-    }
+        def missing = []
 
-    sourceDeps.each { dep ->
-        def taskName = "installSpigot_${dep[0].split("-")[0]}"
-        def installTask = tasks.register(taskName, JavaExec) {
-            group = "build setup"
-            description = "Installs Spigot ${dep[0].split("-")[0]} to mavenLocal"
-            javaLauncher = javaToolchains.launcherFor {
-                languageVersion = JavaLanguageVersion.of(dep[1])
+        externalDeps.each { dep ->
+            def groupPath = dep.group.replace('.', '/')
+            def fullUrl = "${repoUrl}/${groupPath}/${dep.name}/${dep.version}/${dep.name}-${dep.version}.pom"
+            def gav = "${dep.group}:${dep.name}:${dep.version}"
+
+            try {
+                def connection = new URL(fullUrl).openConnection() as HttpURLConnection
+                connection.requestMethod = "HEAD"
+                connection.connectTimeout = 5000
+                connection.readTimeout = 5000
+
+                if (connection.responseCode == 200) {
+                    println "Found: ${gav}"
+                } else {
+                    println "Missing: ${gav} (HTTP ${connection.responseCode})"
+                    missing << fullUrl
+                }
+            } catch (Exception e) {
+                println "Error checking ${gav} - ${e.message}"
+                missing << fullUrl
             }
-            workingDir = "${projectDir}/build"
-            classpath = files(buildtoolsJar)
-            args = ["--rev", dep[0].split("-")[0], "--remapped"]
-            standardOutput = System.out
-            errorOutput = System.err
-            ignoreExitValue = false
-            dependsOn btDownload
         }
 
-        if (!isDependencyInstalled(dep[0])) {
-            // Add this subtask as a dependency of the parent task
-            prepareDeps.get().dependsOn(installTask)
+        if (!missing.isEmpty()) {
+            println "The following dependencies were not found:"
+            missing.each { println " - $it" }
+            throw new GradleException("Some dependencies were not found in the repository.")
+        } else {
+            println "All dependencies found in ${repoUrl}."
         }
     }
+}
+
+processResources {
+    inputs.property('version', project.version)
 }
