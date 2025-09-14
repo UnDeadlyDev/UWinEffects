@@ -44,7 +44,7 @@ public class WinEffectWolfs implements WinEffect, Cloneable {
                     Wolf wolf = world.spawn(loc.add(ThreadLocalRandom.current().nextDouble(-3, 3), ThreadLocalRandom.current().nextDouble(1, 2), ThreadLocalRandom.current().nextDouble(-3, 3)), Wolf.class);
                     wolf.setSitting(ThreadLocalRandom.current().nextBoolean());
                     wolf.setNoDamageTicks(Integer.MAX_VALUE);
-                    wolves.add(wolf); // Add to tracking list
+                    wolves.add(wolf);
                 }
             }
         }.runTaskTimer(Main.get(), taskTick, taskTick);
@@ -55,7 +55,6 @@ public class WinEffectWolfs implements WinEffect, Cloneable {
         if (task != null) {
             task.cancel();
         }
-        // Remove all spawned wolves
         for (Wolf wolf : wolves) {
             if (wolf != null && !wolf.isDead()) {
                 wolf.remove();
