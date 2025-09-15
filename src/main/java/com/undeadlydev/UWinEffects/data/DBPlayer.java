@@ -1,5 +1,7 @@
 package com.undeadlydev.UWinEffects.data;
 
+import com.undeadlydev.UWinEffects.Main;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,7 @@ public class DBPlayer {
 
     private List<Integer> wineffects = new ArrayList<>();
 
-    private int winEffect = 999999;
+    private int winEffect = Main.get().getConfig().getInt("config.defaultWinEffect");
 
     public List<Integer> getWineffects() {
         return this.wineffects;

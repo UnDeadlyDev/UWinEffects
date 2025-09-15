@@ -15,3 +15,6 @@ addons:
   PlaceholderAPI: true
   Vault: false
 
+config:
+  defaultWinEffect: 0
+

@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'com.undeadlydev'
-version '1.0.4'
+version '1.0.5'
 
 bukkit {
     name = 'UWinEffects'
@@ -63,7 +63,7 @@ dependencies {
     implementation 'com.github.datatags.MobChipLite:mobchip-bukkit:1.10.14'
 
     // https://github.com/CryptoMorin/XSeries
-    library 'com.github.cryptomorin:XSeries:13.3.3'
+    library 'com.github.cryptomorin:XSeries:13.4.0'
 
     // https://github.com/brettwooldridge/HikariCP
     library 'com.zaxxer:HikariCP:7.0.2'
