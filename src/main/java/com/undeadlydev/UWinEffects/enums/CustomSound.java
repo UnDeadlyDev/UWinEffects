@@ -1,4 +1,4 @@
-package com.undeadlydev.UWinEffects.managers;
+package com.undeadlydev.UWinEffects.enums;
 
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -13,6 +13,7 @@ public enum CustomSound {
     WINEFFECTS_ICEWALKER(null, 0.0f, 0.0f),
     WINEFFECTS_RAINBOWBEACON(null, 0.0f, 0.0f),
     WINEFFECTS_STARSHOWER(null, 0.0f, 0.0f),
+    WINEFFECTS_WOLFS(null, 0.0f, 0.0f),
     NOBUY(null, 0.0f, 0.0f);
 
     private Sound sound;

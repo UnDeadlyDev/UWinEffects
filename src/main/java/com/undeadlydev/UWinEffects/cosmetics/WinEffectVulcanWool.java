@@ -4,7 +4,7 @@ import com.cryptomorin.xseries.XMaterial;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
-import com.undeadlydev.UWinEffects.managers.CustomSound;
+import com.undeadlydev.UWinEffects.enums.CustomSound;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.FallingBlock;
@@ -22,11 +22,26 @@ public class WinEffectVulcanWool implements WinEffect, Cloneable {
     private Collection<FallingBlock> fires = new ArrayList<>();
     private BukkitTask task;
 
-    private Material[] wools = new Material[]{XMaterial.WHITE_WOOL.parseMaterial(), XMaterial.LIGHT_GRAY_WOOL.parseMaterial(), XMaterial.GRAY_WOOL.parseMaterial(), XMaterial.BLACK_WOOL.parseMaterial(), XMaterial.BROWN_WOOL.parseMaterial(), XMaterial.RED_WOOL.parseMaterial(), XMaterial.ORANGE_WOOL.parseMaterial(), XMaterial.YELLOW_WOOL.parseMaterial(), XMaterial.LIME_WOOL.parseMaterial(), XMaterial.GREEN_WOOL.parseMaterial(), XMaterial.CYAN_WOOL.parseMaterial(), XMaterial.LIGHT_BLUE_WOOL.parseMaterial(), XMaterial.BLUE_WOOL.parseMaterial(), XMaterial.PURPLE_WOOL.parseMaterial(), XMaterial.MAGENTA_WOOL.parseMaterial(), XMaterial.PINK_WOOL.parseMaterial()};
+    private Material[] wools = new Material[]{
+            XMaterial.WHITE_WOOL.parseMaterial(),
+            XMaterial.LIGHT_GRAY_WOOL.parseMaterial(),
+            XMaterial.GRAY_WOOL.parseMaterial(),
+            XMaterial.BLACK_WOOL.parseMaterial(),
+            XMaterial.BROWN_WOOL.parseMaterial(),
+            XMaterial.RED_WOOL.parseMaterial(),
+            XMaterial.ORANGE_WOOL.parseMaterial(),
+            XMaterial.YELLOW_WOOL.parseMaterial(),
+            XMaterial.LIME_WOOL.parseMaterial(),
+            XMaterial.GREEN_WOOL.parseMaterial(),
+            XMaterial.CYAN_WOOL.parseMaterial(),
+            XMaterial.LIGHT_BLUE_WOOL.parseMaterial(),
+            XMaterial.BLUE_WOOL.parseMaterial(),
+            XMaterial.PURPLE_WOOL.parseMaterial(),
+            XMaterial.MAGENTA_WOOL.parseMaterial(),
+            XMaterial.PINK_WOOL.parseMaterial()};
 
     @Override
     public void start(Player p) {
-
         String name = p.getLocation().getWorld().getName();
         task = new BukkitRunnable() {
             @Override
@@ -58,7 +73,7 @@ public class WinEffectVulcanWool implements WinEffect, Cloneable {
                 fb.getLocation().getBlock().setType(Material.AIR);
             }
         }
-        fires.clear(); // Clear the list after cleanup
+        fires.clear();
     }
 
     @Override
@@ -71,12 +86,13 @@ public class WinEffectVulcanWool implements WinEffect, Cloneable {
     }
 
     private FallingBlock spawnWool(Location location, double d, double d3) {
-        FallingBlock fallingBlock = location.getWorld().spawnFallingBlock(location, this.wools[ThreadLocalRandom.current().nextInt(this.wools.length)], (byte) ThreadLocalRandom.current().nextInt(15));
+        Location spawnLocation = location.clone();
+        spawnLocation.add(0, 2.5, 0); // Generar encima de la cabeza
+        FallingBlock fallingBlock = spawnLocation.getWorld().spawnFallingBlock(spawnLocation, this.wools[ThreadLocalRandom.current().nextInt(this.wools.length)], (byte) ThreadLocalRandom.current().nextInt(15));
         fallingBlock.setVelocity(new Vector(d, 0.75, d3));
         return fallingBlock;
     }
 
     @Override
     public void loadCustoms(Main plugin, String path) {}
-
 }

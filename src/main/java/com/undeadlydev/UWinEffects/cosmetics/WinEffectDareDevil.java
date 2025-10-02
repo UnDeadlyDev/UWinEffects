@@ -1,10 +1,8 @@
 package com.undeadlydev.UWinEffects.cosmetics;
 
-import com.cryptomorin.xseries.XSound;
-
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
-import com.undeadlydev.UWinEffects.managers.CustomSound;
+import com.undeadlydev.UWinEffects.enums.CustomSound;
 import com.undeadlydev.UWinEffects.utils.Utils;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Vehicle;

@@ -2,7 +2,7 @@ package com.undeadlydev.UWinEffects.cosmetics;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
-import com.undeadlydev.UWinEffects.managers.CustomSound;
+import com.undeadlydev.UWinEffects.enums.CustomSound;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;

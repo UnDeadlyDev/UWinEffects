@@ -2,7 +2,7 @@ package com.undeadlydev.UWinEffects.cosmetics;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
-import com.undeadlydev.UWinEffects.managers.CustomSound;
+import com.undeadlydev.UWinEffects.enums.CustomSound;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.FallingBlock;
@@ -67,7 +67,9 @@ public class WinEffectVulcanFire implements WinEffect, Cloneable {
     }
 
     private FallingBlock spawnFire(Location location, double d, double d3) {
-        FallingBlock fallingBlock = location.getWorld().spawnFallingBlock(location, Material.FIRE, (byte) ThreadLocalRandom.current().nextInt(15));
+        Location spawnLocation = location.clone();
+        spawnLocation.add(0, 2.5, 0); //
+        FallingBlock fallingBlock = location.getWorld().spawnFallingBlock(spawnLocation, Material.FIRE, (byte) ThreadLocalRandom.current().nextInt(15));
         fallingBlock.setVelocity(new Vector(d, 0.75, d3));
         return fallingBlock;
     }

@@ -4,7 +4,7 @@ import com.cryptomorin.xseries.XMaterial;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
-import com.undeadlydev.UWinEffects.managers.CustomSound;
+import com.undeadlydev.UWinEffects.enums.CustomSound;
 import com.undeadlydev.UWinEffects.utils.Utils;
 import org.bukkit.Location;
 import org.bukkit.Material;

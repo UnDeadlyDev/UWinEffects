@@ -5,13 +5,108 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f12824a4-757d-4c5f-8391-2986cf28d31e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cmds/UwinEffectsCMD.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cmds/UwinEffectsCMD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectChicken$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectChicken$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectChicken.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectChicken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectDareDevil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectDareDevil$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectDareDevil$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectDareDevil$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectDareDevil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectDareDevil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectIceWalker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectIceWalker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectNotes$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectNotes$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectRainbowBeacon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectRainbowBeacon$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectRainbowBeacon.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectRainbowBeacon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectStarShower$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectStarShower$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanFire$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanFire$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanFire.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanFire.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanWool$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanWool$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanWool.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanWool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectWolfs$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectWolfs.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/cosmetics/WinEffectWolfs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/managers/CustomSound.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/managers/ShopManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/managers/ShopManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/menus/UltraInventoryMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/undeadlydev/UWinEffects/menus/UltraInventoryMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/generated/plugin-yml/Bukkit/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/generated/plugin-yml/Bukkit/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/data/DBPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/data/DBPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/cosmetics/wineffect.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/cosmetics/wineffect.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/sounds.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/sounds.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AddonManager.class.uniqueId31" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CosmeticManager.class.uniqueId14" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DBPlayer.class.uniqueId33" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Database.class.uniqueId24" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ItemBuilder.class.uniqueId49" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ItemUtils.class.uniqueId23" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main$1.class.uniqueId25" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId60" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MenuListener.class.uniqueId59" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MySQLDatabase.class.uniqueId55" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlayerListener$1.class.uniqueId27" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PlayerListener.class.uniqueId52" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ShopManager.class.uniqueId51" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UWinEffect.class.uniqueId16" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UltraInventory.class.uniqueId40" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Utils.class.uniqueId35" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffect.class.uniqueId20" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectAnvilLand$1.class.uniqueId19" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectChicken$1.class.uniqueId42" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectChicken.class.uniqueId22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectDareDevil$1.class.uniqueId44" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectDareDevil$2.class.uniqueId34" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectDareDevil.class.uniqueId45" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectDestroyIsland$1.class.uniqueId53" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectFireworks$1.class.uniqueId41" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectFireworks.class.uniqueId50" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectIceWalker$1.class.uniqueId54" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectIceWalker.class.uniqueId37" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectMeteors$1.class.uniqueId46" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectNotes.class.uniqueId28" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectPigLand$1.class.uniqueId43" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectPigLand.class.uniqueId39" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectRainbowBeacon.class.uniqueId15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectStarShower$1.class.uniqueId36" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectStarShower.class.uniqueId47" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTitan$1.class.uniqueId56" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTitan.class.uniqueId58" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectTwerkApocalypse.class.uniqueId48" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectVulcanFire$1.class.uniqueId17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectVulcanFire.class.uniqueId57" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectVulcanWool$1.class.uniqueId38" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectVulcanWool.class.uniqueId12" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectVulcanWool.class.uniqueId12" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectWardens$1.class.uniqueId18" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectWardens.class.uniqueId29" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectWitherRider$2.class.uniqueId21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectWitherRider.class.uniqueId13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectWolfs$1.class.uniqueId26" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectWolfs.class.uniqueId32" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/WinEffectsSelectorMenu.class.uniqueId30" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cmds/UwinEffectsCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cmds/UwinEffectsCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectChicken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectChicken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectDareDevil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectDareDevil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectIceWalker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectIceWalker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectNotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectNotes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectRainbowBeacon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectRainbowBeacon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectStarShower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectStarShower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanFire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanFire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanWool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectVulcanWool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectWolfs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/cosmetics/WinEffectWolfs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/managers/CustomSound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/enums/CustomSound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/managers/ShopManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/managers/ShopManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/menus/UltraInventoryMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/undeadlydev/UWinEffects/menus/UltraInventoryMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cosmetics/wineffect.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cosmetics/wineffect.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sounds.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

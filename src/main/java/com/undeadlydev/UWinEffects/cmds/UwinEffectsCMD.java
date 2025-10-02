@@ -84,6 +84,8 @@ public class UwinEffectsCMD extends CommandManager<Main> {
             sender.sendMessage(plugin.getLang().get("messages.commands.errors.no-player"));
             return;
         }
+        if (plugin.getCos().winEffectsTask.containsKey(target.getUniqueId()))
+            return;
         DBPlayer dbPlayer = plugin.getDb().getDBPlayer(target);
         plugin.getCos().executeWinEffect(target, dbPlayer.getWinEffect());
         sender.sendMessage(plugin.getLang().get("messages.commands.wineffects.start.success").replace("%player%", target.getName()));

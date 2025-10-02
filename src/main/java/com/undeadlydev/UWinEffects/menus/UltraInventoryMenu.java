@@ -6,7 +6,6 @@ import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.cosmetics.UWinEffect;
 import com.undeadlydev.UWinEffects.data.DBPlayer;
 import com.undeadlydev.UWinEffects.inventories.selectors.WinEffectsSelectorMenu;
-import com.undeadlydev.UWinEffects.managers.CustomSound;
 import com.undeadlydev.UWinEffects.superclass.UltraInventory;
 import com.undeadlydev.UWinEffects.inventories.actions.InventoryAction;
 import com.undeadlydev.UWinEffects.utils.ItemBuilder;

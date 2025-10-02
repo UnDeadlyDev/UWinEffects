@@ -2,7 +2,7 @@ package com.undeadlydev.UWinEffects.cosmetics;
 
 import com.undeadlydev.UWinEffects.Main;
 import com.undeadlydev.UWinEffects.interfaces.WinEffect;
-import com.undeadlydev.UWinEffects.managers.CustomSound;
+import com.undeadlydev.UWinEffects.enums.CustomSound;
 import com.undeadlydev.UWinEffects.utils.Utils;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -14,7 +14,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import com.cryptomorin.xseries.XMaterial;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;

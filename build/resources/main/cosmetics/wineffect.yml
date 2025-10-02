@@ -303,7 +303,6 @@ wineffects:
     isBuy: true
     slot: 24
     page: 1
-    taskTick: 5
     permission: uwineffects.wolfs
     autoGivePermission: uwineffect.autogive.wolfs
     needPermToBuy: false

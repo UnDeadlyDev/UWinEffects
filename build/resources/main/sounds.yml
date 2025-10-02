@@ -35,6 +35,10 @@ sounds:
     sound: ENTITY_FIREWORK_ROCKET_LAUNCH
     volume: 1.0
     pitch: 1.0
+  WINEFFECTS_WOLFS:
+    sound: ENTITY_WOLF_GROWL
+    volume: 1.0
+    pitch: 0.0
   NOBUY:
     sound: ENTITY_ENDERMAN_TELEPORT
     volume: 1.0
