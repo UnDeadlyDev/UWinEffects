@@ -41,7 +41,6 @@ public class Main extends JavaPlugin {
     private ShopManager shm;
     private int pluginId, resourceId;
     private Collision collision;
-    private VersionManager versionManager;
 
     public static Main get() {
         return instance;
@@ -99,10 +98,6 @@ public class Main extends JavaPlugin {
         return collision;
     }
 
-    public VersionManager getVersionManager() {
-        return versionManager;
-    }
-
     @Override
     public void onEnable() {
         instance = this;
@@ -139,12 +134,6 @@ public class Main extends JavaPlugin {
             cs.setPitch((float)getSounds().getDouble(path + ".pitch"));
         }
         collision = new CollisionHelper();
-        try {
-            ServerVersion detected = ServerVersion.detect();
-            versionManager = new VersionManager(detected, detected.isNmsSupported());
-        } catch (ReflectiveOperationException e) {
-            throw new RuntimeException("Failed to initialize VersionManager", e);
-        }
         gson = new Gson();
         db = new MySQLDatabase(this);
         sendLogMessage("&7-----------------------------------");
