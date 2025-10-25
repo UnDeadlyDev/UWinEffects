@@ -16,8 +16,6 @@ import com.undeadlydev.UWinEffects.menus.UltraInventoryMenu;
 import com.undeadlydev.UWinEffects.superclass.SpigotUpdater;
 import com.undeadlydev.UWinEffects.utils.ChatUtils;
 
-import com.undeadlydev.UWinEffects.utils.version.ServerVersion;
-import com.undeadlydev.UWinEffects.utils.version.VersionManager;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;

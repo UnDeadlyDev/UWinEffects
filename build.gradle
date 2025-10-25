@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     // https://github.com/GradleUp/shadow
-    id 'com.gradleup.shadow' version '9.1.0'
+    id 'com.gradleup.shadow' version '9.2.2'
     // https://github.com/Minecrell/plugin-yml
     id 'net.minecrell.plugin-yml.bukkit' version '0.6.0'
 }
@@ -63,7 +63,7 @@ dependencies {
     implementation 'com.github.datatags.MobChipLite:mobchip-bukkit:1.10.14'
 
     // https://github.com/CryptoMorin/XSeries
-    library 'com.github.cryptomorin:XSeries:13.4.0'
+    library 'com.github.cryptomorin:XSeries:13.5.1'
 
     // https://github.com/brettwooldridge/HikariCP
     library 'com.zaxxer:HikariCP:7.0.2'
